@@ -1,0 +1,18 @@
+# DealFinder AI - Dependencies
+
+# Core dependencies
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+google-generativeai>=0.3.0
+python-dotenv>=1.0.0
+
+# Terminal UI
+rich>=12.0.0
+
+# Web interface
+Flask>=2.2.0
+gunicorn>=20.1.0
+
+# Utilities
+packaging>=20.0

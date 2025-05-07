@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DealFinder AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .chat-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 18px;
+            max-width: 80%;
+            position: relative;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .bot-message {
+            background-color: #e9ecef;
+            color: #212529;
+            align-self: flex-start;
+        }
+        .message-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+        .product-source {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .sponsored-tag {
+            background-color: #ffc107;
+            color: #212529;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 123, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #007bff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1 class="display-5">DealFinder AI</h1>
+                <p class="text-muted">Find the best deals across multiple shopping sites</p>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="message-container">
+                    <div class="message bot-message">
+                        <p>Hello! I'm DealFinder AI. I can help you find the best deals across multiple shopping sites.</p>
+                        <p>Just tell me what you're looking for in natural language. For example:</p>
+                        <ul>
+                            <li>Find me the best deals on wireless headphones</li>
+                            <li>I need a budget laptop for college under $500</li>
+                            <li>What are the top-rated coffee makers on sale right now?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="user-input" class="form-control" placeholder="What are you looking for today?" aria-label="User message">
+                <button class="btn btn-primary" type="button" id="send-button">
+                    <span id="button-text">Send</span>
+                    <span id="button-loading" class="loading d-none"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const buttonText = document.getElementById('button-text');
+            const buttonLoading = document.getElementById('button-loading');
+
+            // Function to add message to chat
+            function addMessage(content, isUser = false) {
+                const messageContainer = document.createElement('div');
+                messageContainer.className = 'message-container';
+                
+                const message = document.createElement('div');
+                message.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+                
+                if (typeof content === 'string') {
+                    // Regular text message
+                    message.innerHTML = formatMessage(content);
+                } else if (content.type === 'products') {
+                    // Product list
+                    const productsHtml = content.products.map((product, index) => {
+                        return `
+                            <div class="product-card">
+                                <div class="product-title">
+                                    ${index + 1}. ${product.title}
+                                    ${product.is_sponsored ? '<span class="sponsored-tag">SPONSORED</span>' : ''}
+                                </div>
+                                <div class="product-price">💰 ${formatPrice(product)}</div>
+                                <div class="product-rating">⭐ ${formatRating(product)}</div>
+                                <div class="product-source">🏬 ${product.source}: <a href="${product.url}" target="_blank">View Deal</a></div>
+                            </div>
+                        `;
+                    }).join('');
+                    
+                    message.innerHTML = `
+                        <p>🔍 Found ${content.products.length} great deals for: '${content.query}'</p>
+                        ${productsHtml}
+                        <p>Would you like more information about any of these products?</p>
+                    `;
+                }
+                
+                messageContainer.appendChild(message);
+                chatMessages.appendChild(messageContainer);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Format regular text messages (handle line breaks, etc.)
+            function formatMessage(text) {
+                return text.replace(/\n/g, '<br>');
+            }
+            
+            // Format price display with additional information
+            function formatPrice(product) {
+                let priceText = `${product.price.toFixed(2)}`;
+                
+                if (product.shipping !== undefined) {
+                    if (product.shipping > 0) {
+                        priceText += ` + ${product.shipping.toFixed(2)} shipping`;
+                    } else {
+                        priceText += ` (Free shipping)`;
+                    }
+                } else if (product.is_free_shipping) {
+                    priceText += ` (Free shipping)`;
+                }
+                
+                if (product.is_prime) {
+                    priceText += ` ✓ Prime`;
+                }
+                
+                if (product.is_pickup_today) {
+                    priceText += ` ✓ Pickup Today`;
+                }
+                
+                return priceText;
+            }
+            
+            // Format rating display
+            function formatRating(product) {
+                const fullStars = Math.floor(product.rating);
+                const emptyStars = 5 - fullStars;
+                
+                let ratingText = '★'.repeat(fullStars) + '☆'.repeat(emptyStars);
+                
+                if (product.reviews !== undefined) {
+                    ratingText += ` (${product.reviews} reviews)`;
+                }
+                
+                return ratingText;
+            }
+            
+            // Parse terminal-style response to extract products
+            function parseResponse(response) {
+                // Check if this is a product list response
+                if (response.includes('Found') && response.includes('great deals for:')) {
+                    try {
+                        // Extract query
+                        const queryMatch = response.match(/Found \d+ great deals for: '([^']+)'/);
+                        const query = queryMatch ? queryMatch[1] : '';
+                        
+                        // Extract products
+                        const products = [];
+                        const productRegex = /(\d+)\. (.*?)(?:\[SPONSORED\])?\n\s+💰 (.*?)\n\s+⭐ (.*?)\n\s+🏬 (.*?): (https:\/\/.*?)(?:\n|$)/g;
+                        
+                        let match;
+                        while ((match = productRegex.exec(response)) !== null) {
+                            const [_, index, title, price, rating, source, url] = match;
+                            
+                            // Create a product object
+                            const product = {
+                                title: title.trim(),
+                                price: parseFloat(price.replace(/[^\d.]/g, '')),
+                                rating: rating.split(' ')[0].length, // Count stars
+                                reviews: parseInt(rating.match(/\((\d+) reviews\)/)?.[1] || '0'),
+                                source: source.trim(),
+                                url: url.trim(),
+                                is_sponsored: title.includes('[SPONSORED]') || false,
+                                is_prime: price.includes('Prime') || false,
+                                is_pickup_today: price.includes('Pickup Today') || false,
+                                is_free_shipping: price.includes('Free shipping') || false,
+                                shipping: price.includes('+ ') ? parseFloat(price.match(/\+ \$([\d.]+)/)?.[1] || '0') : 0
+                            };
+                            
+                            products.push(product);
+                        }
+                        
+                        return {
+                            type: 'products',
+                            query: query,
+                            products: products
+                        };
+                    } catch (e) {
+                        console.error('Error parsing product response:', e);
+                        return response;
+                    }
+                }
+                
+                return response;
+            }
+
+            // Send message function
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                // Add user message to chat
+                addMessage(message, true);
+                userInput.value = '';
+                
+                // Show loading state
+                buttonText.classList.add('d-none');
+                buttonLoading.classList.remove('d-none');
+                sendButton.disabled = true;
+                
+                // Send request to backend
+                fetch('/api/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: message }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        addMessage(`Error: ${data.error}`);
+                    } else {
+                        const parsedResponse = parseResponse(data.response);
+                        addMessage(parsedResponse);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    addMessage('Sorry, there was an error processing your request. Please try again.');
+                })
+                .finally(() => {
+                    // Hide loading state
+                    buttonText.classList.remove('d-none');
+                    buttonLoading.classList.add('d-none');
+                    sendButton.disabled = false;
+                });
+            }
+
+            // Event listeners
+            sendButton.addEventListener('click', sendMessage);
+            
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

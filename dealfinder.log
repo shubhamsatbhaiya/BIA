@@ -1,0 +1,310 @@
+2025-05-07 12:08:05,654 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:08:05,655 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:08:05,655 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 12:08:05,655 - DealFinderAI.Main - INFO - Using mock scrapers
+2025-05-07 12:08:05,655 - DealFinderAI.Scrapers - INFO - Initializing mock scraper agents
+2025-05-07 12:08:29,454 - DealFinderAI.Controller - INFO - Processing user query: Find me the best deals on wireless headphones
+2025-05-07 12:08:29,455 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: Find me the best deals on wireless headphones
+2025-05-07 12:08:29,955 - DealFinderAI.GeminiAgent - ERROR - Error processing Gemini request: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 29
+}
+]
+2025-05-07 12:09:38,990 - DealFinderAI.Controller - INFO - Processing user query: Find me the best deals on wireless headphones
+2025-05-07 12:09:38,993 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: Find me the best deals on wireless headphones
+2025-05-07 12:09:39,146 - DealFinderAI.GeminiAgent - ERROR - Error processing Gemini request: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+]
+2025-05-07 12:10:04,926 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:10:04,927 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:10:04,927 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 12:10:04,927 - DealFinderAI.Main - INFO - Using mock scrapers
+2025-05-07 12:10:04,928 - DealFinderAI.Scrapers - INFO - Initializing mock scraper agents
+2025-05-07 12:10:07,665 - DealFinderAI.Controller - INFO - Processing user query: Find me the best deals on wireless headphones
+2025-05-07 12:10:07,666 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: Find me the best deals on wireless headphones
+2025-05-07 12:10:08,732 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "wireless headphones",
+  "keywords": ["wireless", "headphones", "deals", "best"],
+  "price_range": null,
+  "brands": null,
+  "features": null,
+  "sorting_preference": "price_low_to_high",
+  "buy_it_now": true
+}
+```
+
+2025-05-07 12:10:08,732 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:10:08,732 - DealFinderAI.AmazonScraperAgent - INFO - Mock Amazon search for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:10:08,733 - DealFinderAI.WalmartScraperAgent - INFO - Mock Walmart search for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:10:08,733 - DealFinderAI.EbayScraperAgent - INFO - Mock eBay search for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:10:08,733 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: Find me the best deals on wireless headphones
+2025-05-07 12:10:08,733 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 12:10:08,733 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products
+2025-05-07 12:12:14,668 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:12:14,669 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:12:14,669 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 12:12:14,669 - DealFinderAI.Main - INFO - Using real scrapers
+2025-05-07 12:12:14,714 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-07 12:12:14,998 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:12:14,999 - DealFinderAI - INFO - Logging initialized
+2025-05-07 12:12:14,999 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 12:12:14,999 - DealFinderAI.Main - INFO - Using real scrapers
+2025-05-07 12:12:15,025 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-07 12:12:33,341 - DealFinderAI.Controller - INFO - Processing user query: Find me the best deals on wireless headphones
+2025-05-07 12:12:33,342 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: Find me the best deals on wireless headphones
+2025-05-07 12:12:34,476 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "wireless headphones",
+  "keywords": ["wireless", "headphones", "deals", "best"],
+  "price_range": null,
+  "brands": null,
+  "features": null,
+  "sorting_preference": "price_low_to_high",
+  "buy_it_now": true
+}
+```
+
+2025-05-07 12:12:34,476 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:12:34,476 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:12:36,336 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:12:39,134 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'wireless headphones', 'keywords': ['wireless', 'headphones', 'deals', 'best'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:12:40,722 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:12:40,723 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:12:40,724 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:12:42,041 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: Find me the best deals on wireless headphones
+2025-05-07 12:12:42,041 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 12:12:42,041 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products
+2025-05-07 12:14:21,941 - DealFinderAI.Controller - INFO - Processing user query: find me best deal for sony headphones
+2025-05-07 12:14:21,943 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: find me best deal for sony headphones
+2025-05-07 12:14:22,792 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "headphones",
+  "keywords": ["sony", "headphones"],
+  "price_range": null,
+  "brands": ["Sony"],
+  "features": [],
+  "sorting_preference": "price_low_to_high",
+  "buy_it_now": true
+}
+```
+
+2025-05-07 12:14:22,793 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'headphones', 'keywords': ['sony', 'headphones'], 'price_range': None, 'brands': ['Sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:14:22,793 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'headphones', 'keywords': ['sony', 'headphones'], 'price_range': None, 'brands': ['Sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:14:25,472 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'headphones', 'keywords': ['sony', 'headphones'], 'price_range': None, 'brands': ['Sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:14:28,983 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'headphones', 'keywords': ['sony', 'headphones'], 'price_range': None, 'brands': ['Sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 12:14:30,346 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:14:30,346 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:14:30,346 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:14:31,052 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: find me best deal for sony headphones
+2025-05-07 12:14:31,052 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 12:14:31,052 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products
+2025-05-07 12:15:10,901 - DealFinderAI.Controller - INFO - Processing user query: i want to buy sony xm 1000 series
+2025-05-07 12:15:10,903 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: i want to buy sony xm 1000 series
+2025-05-07 12:15:11,773 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "headphones",
+  "keywords": ["sony", "xm 1000 series"],
+  "price_range": null,
+  "brands": ["sony"],
+  "features": [],
+  "sorting_preference": null,
+  "buy_it_now": true
+}
+```
+
+2025-05-07 12:15:11,773 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'headphones', 'keywords': ['sony', 'xm 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 12:15:11,774 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'headphones', 'keywords': ['sony', 'xm 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 12:15:13,986 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'headphones', 'keywords': ['sony', 'xm 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 12:15:16,537 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'headphones', 'keywords': ['sony', 'xm 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 12:15:17,851 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:15:17,852 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:15:17,852 - DealFinderAI.EbayScraperAgent - ERROR - Error extracting product data: 'NoneType' object has no attribute 'attrs'
+2025-05-07 12:15:18,682 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: i want to buy sony xm 1000 series
+2025-05-07 12:15:18,682 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 12:15:18,683 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products
+2025-05-07 13:45:38,921 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:45:38,921 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:45:38,922 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 13:45:38,922 - DealFinderAI.Main - INFO - Using real scrapers
+2025-05-07 13:45:38,969 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-07 13:45:39,230 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:45:39,230 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:45:39,231 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 13:45:39,231 - DealFinderAI.Main - INFO - Using real scrapers
+2025-05-07 13:45:39,257 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-07 13:46:16,967 - DealFinderAI.Controller - INFO - Processing user query: sony mx 1000 series headphones from cheapest
+2025-05-07 13:46:16,968 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: sony mx 1000 series headphones from cheapest
+2025-05-07 13:46:18,072 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "headphones",
+  "keywords": ["sony", "mx 1000 series"],
+  "price_range": null,
+  "brands": ["sony"],
+  "features": [],
+  "sorting_preference": "price_low_to_high",
+  "buy_it_now": true
+}
+```
+
+2025-05-07 13:46:18,072 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'headphones', 'keywords': ['sony', 'mx 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 13:46:18,072 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'headphones', 'keywords': ['sony', 'mx 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 13:46:20,446 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'headphones', 'keywords': ['sony', 'mx 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 13:46:23,876 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'headphones', 'keywords': ['sony', 'mx 1000 series'], 'price_range': None, 'brands': ['sony'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-07 13:46:26,370 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: sony mx 1000 series headphones from cheapest
+2025-05-07 13:46:26,371 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 13:46:26,371 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 8 products
+2025-05-07 13:50:42,651 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:50:42,651 - DealFinderAI - INFO - Logging initialized
+2025-05-07 13:50:42,652 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-07 13:50:42,652 - DealFinderAI.Main - INFO - Using real scrapers
+2025-05-07 13:50:42,697 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-07 13:51:06,325 - DealFinderAI.Controller - INFO - Processing user query: sont mx 1000
+2025-05-07 13:51:06,325 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: sont mx 1000
+2025-05-07 13:51:07,333 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "mx",
+  "keywords": ["sont", "1000"],
+  "price_range": null,
+  "brands": ["sont"],
+  "features": [],
+  "sorting_preference": null,
+  "buy_it_now": null
+}
+```
+
+2025-05-07 13:51:07,333 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'mx', 'keywords': ['sont', '1000'], 'price_range': None, 'brands': ['sont'], 'features': [], 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:07,334 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'mx', 'keywords': ['sont', '1000'], 'price_range': None, 'brands': ['sont'], 'features': [], 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:09,939 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'mx', 'keywords': ['sont', '1000'], 'price_range': None, 'brands': ['sont'], 'features': [], 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:13,069 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'mx', 'keywords': ['sont', '1000'], 'price_range': None, 'brands': ['sont'], 'features': [], 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:16,324 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: sont mx 1000
+2025-05-07 13:51:16,325 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 13:51:16,325 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 8 products
+2025-05-07 13:51:52,068 - DealFinderAI.Controller - INFO - Processing user query: yes give me more deatil about product 1
+2025-05-07 13:51:52,070 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: yes give me more deatil about product 1
+2025-05-07 13:51:52,908 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": null,
+  "keywords": ["product 1"],
+  "price_range": null,
+  "brands": null,
+  "features": null,
+  "sorting_preference": null,
+  "buy_it_now": null
+}
+```
+
+2025-05-07 13:51:52,909 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': None, 'keywords': ['product 1'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:52,909 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': None, 'keywords': ['product 1'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:52,909 - DealFinderAI.AmazonScraperAgent - ERROR - Error scraping Amazon: sequence item 0: expected str instance, NoneType found
+2025-05-07 13:51:52,910 - DealFinderAI.Controller - WARNING - Amazon search error: {'error': 'Amazon scraping error: sequence item 0: expected str instance, NoneType found'}
+2025-05-07 13:51:52,910 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': None, 'keywords': ['product 1'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:52,910 - DealFinderAI.WalmartScraperAgent - ERROR - Error scraping Walmart: sequence item 0: expected str instance, NoneType found
+2025-05-07 13:51:52,910 - DealFinderAI.Controller - WARNING - Walmart search error: {'error': 'Walmart scraping error: sequence item 0: expected str instance, NoneType found'}
+2025-05-07 13:51:52,910 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': None, 'keywords': ['product 1'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': None, 'buy_it_now': None}
+2025-05-07 13:51:52,910 - DealFinderAI.EbayScraperAgent - ERROR - Error scraping eBay: sequence item 0: expected str instance, NoneType found
+2025-05-07 13:51:52,910 - DealFinderAI.Controller - WARNING - eBay search error: {'error': 'eBay scraping error: sequence item 0: expected str instance, NoneType found'}
+2025-05-07 13:51:52,911 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: yes give me more deatil about product 1
+2025-05-07 13:51:52,911 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 0 results from various sources
+2025-05-07 13:51:52,911 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 0 products
+2025-05-07 13:54:25,151 - DealFinderAI.Controller - INFO - Processing user query: soundcore p40i
+2025-05-07 13:54:25,153 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: soundcore p40i
+2025-05-07 13:54:26,066 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "earbuds",
+  "keywords": ["soundcore", "p40i"],
+  "price_range": null,
+  "brands": ["Soundcore"],
+  "features": [],
+  "sorting_preference": null,
+  "buy_it_now": true
+}
+```
+
+2025-05-07 13:54:26,067 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'earbuds', 'keywords': ['soundcore', 'p40i'], 'price_range': None, 'brands': ['Soundcore'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 13:54:26,067 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'earbuds', 'keywords': ['soundcore', 'p40i'], 'price_range': None, 'brands': ['Soundcore'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 13:54:28,486 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'earbuds', 'keywords': ['soundcore', 'p40i'], 'price_range': None, 'brands': ['Soundcore'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 13:54:31,694 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'earbuds', 'keywords': ['soundcore', 'p40i'], 'price_range': None, 'brands': ['Soundcore'], 'features': [], 'sorting_preference': None, 'buy_it_now': True}
+2025-05-07 13:54:33,747 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: soundcore p40i
+2025-05-07 13:54:33,747 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-07 13:54:33,748 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products

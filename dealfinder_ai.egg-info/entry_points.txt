@@ -1,0 +1,2 @@
+[console_scripts]
+dealfinder = dealfinder.main:main
