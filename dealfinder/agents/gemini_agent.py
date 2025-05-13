@@ -152,3 +152,96 @@ class GeminiAgent(Agent):
                 message_type="ERROR",
                 conversation_id=message.conversation_id
             )
+    
+    def extract_product_details_from_html(self, html_content: str) -> Dict[str, Any]:
+        """
+        Extract product details from HTML content using Gemini.
+        
+        Args:
+            html_content: HTML content to extract details from
+            
+        Returns:
+            Dictionary containing extracted product details
+        """
+        try:
+            prompt = f"""
+            Extract product details from the following HTML content:
+
+            Content:
+            ```html
+            {html_content}
+            ```
+
+            Extract the following fields:
+            - title: Product title
+            - price: Product price as a float
+            - url: Product URL
+            - image_url: Product image URL
+            - rating: Product rating (0-5)
+            - reviews: Number of reviews
+            - 
+            Return the results in JSON format:
+            ```json
+            {{
+                "title": "",
+                "price": 0.0,
+                "url": "",
+                "image_url": "",
+                "rating": 0.0,
+                "reviews": 0
+            }}
+            ```
+            """
+            response = self.model.generate_content(prompt)
+            content = response.text
+            # Try to extract JSON from the response
+            import re
+            json_match = re.search(r'```json\s*([^`]+)\s*```', content)
+            data = None
+            if json_match:
+                try:
+                    data = json.loads(json_match.group(1))
+                except json.JSONDecodeError:
+                    data = None
+            if data is None:
+                try:
+                    data = json.loads(content)
+                except json.JSONDecodeError:
+                    return {
+                        "error": "Could not extract product details from HTML"
+                    }
+            # Type correction
+            try:
+                data["price"] = float(data.get("price", 0.0))
+            except Exception:
+                data["price"] = 0.0
+            try:
+                data["rating"] = float(data.get("rating", 0.0))
+            except Exception:
+                data["rating"] = 0.0
+            try:
+                data["reviews"] = int(data.get("reviews", 0))
+            except Exception:
+                data["reviews"] = 0
+            return data
+        except Exception as e:
+            self.logger.error(f"Error extracting product details: {str(e)}")
+            return {
+                "error": f"Error extracting product details: {str(e)}"
+            }
+    def run(self, prompt: str) -> str:
+        """
+        Run a free-form prompt using the Gemini model and return the response text.
+        
+        Args:
+            prompt: A text prompt to be sent to the Gemini model.
+            
+        Returns:
+            The text content of Gemini's response.
+        """
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            self.logger.error(f"Error in run(): {str(e)}")
+            return f"Error: {str(e)}"

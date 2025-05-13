@@ -1,24 +1,153 @@
 # DealFinder AI
 
-A Python-based chatbot that finds the best deals across multiple shopping sites using natural language queries and the Gemini API.
+An intelligent shopping assistant that uses AI to help users find the best deals across multiple e-commerce platforms.
 
 ## Features
 
-- **Natural Language Understanding**: Uses Google's Gemini API to understand complex shopping queries
-- **Multi-Source Search**: Searches across Amazon, Walmart, and eBay to find the best deals
-- **Intelligent Ranking**: Ranks products based on price, ratings, shipping options, and more
-- **Multiple Interfaces**: Works in both terminal mode and as a web service
-- **Real Web Scraping**: Option to use real web scraping or mock data for development
-- **MCP Architecture**: Uses a multi-agent communication protocol for modular design
+- Real-time web scraping from major e-commerce platforms (Amazon, Walmart, eBay)
+- AI-powered product search optimization using Google Gemini
+- Advanced relevance filtering and ranking
+- Multi-agent architecture for modular and scalable design
+- Real-time price comparison and deal detection
+- Natural language query processing
+- Detailed product information extraction
 
-## Installation
+## Architecture
 
-### Prerequisites
+The system is built using a sophisticated Multi-Agent Communication Protocol (MCP) architecture designed for modularity and scalability:
+
+### Core Components
+
+1. **Scraping Agents**
+   - **RealAmazonScraperAgent**
+     - Uses Gemini AI for optimized search queries
+     - Implements intelligent retry mechanisms
+     - Extracts product data including:
+       - ASIN (Amazon Standard Identification Number)
+       - Product title and description
+       - Price information
+       - Image URLs
+       - Review ratings
+       - Availability status
+     - Implements rate limiting and caching
+     - Uses rotating user agents for reliability
+
+   - **RealWalmartScraperAgent**
+     - Gemini-powered search optimization
+     - Extracts detailed product information
+     - Handles Walmart's dynamic pricing
+     - Supports bulk product data extraction
+     - Implements session management
+
+   - **RealEbayScraperAgent**
+     - Optimized for eBay's search algorithms
+     - Extracts auction and fixed-price listings
+     - Handles seller ratings and shipping information
+     - Supports multiple currency conversions
+     - Implements auction-specific data extraction
+
+2. **AI Components**
+   - **Gemini Agent**
+     - Natural language understanding
+     - Query optimization
+     - Product relevance scoring
+     - Price trend analysis
+     - Follow-up question handling
+
+   - **LangChain Integration**
+     - LangGraph workflow management
+     - State management across conversations
+     - Context-aware responses
+     - Product comparison logic
+     - Price trend analysis
+
+3. **Agent Communication Protocol (MCP)**
+   - Message-based communication between agents
+   - Standard message formats:
+     ```python
+     class MCPMessage:
+         sender: str
+         receiver: str
+         message_type: str
+         data: Dict[str, Any]
+     ```
+   - Message types:
+     - SEARCH_REQUEST
+     - SEARCH_RESULTS
+     - PRODUCT_DETAILS
+     - PRICE_COMPARISON
+     - FOLLOW_UP_REQUEST
+
+4. **Data Flow**
+   ```mermaid
+   graph TD
+       A[User Query] --> B[Query Parser]
+       B --> C[Gemini Agent]
+       C --> D[Search Optimizer]
+       D --> E[Scraping Agents]
+       E --> F[Results Aggregator]
+       F --> G[Ranking Engine]
+       G --> H[Response Generator]
+   ```
+
+### Key Features
+
+1. **Smart Query Optimization**
+   - Gemini-powered search term refinement
+   - Context-aware query expansion
+   - Platform-specific search optimization
+   - Brand and feature detection
+
+2. **Advanced Product Comparison**
+   - Price normalization across platforms
+   - Feature-based comparison
+   - Review aggregation
+   - Shipping cost analysis
+   - Availability tracking
+
+3. **Follow-up Conversations**
+   - Context persistence
+   - Product reference tracking
+   - Comparative analysis
+   - Price trend tracking
+   - Detailed information retrieval
+
+4. **Performance Optimization**
+   - Caching mechanisms
+   - Rate limiting
+   - Parallel processing
+   - Error handling and retries
+   - Memory management
+
+### Technical Details
+
+1. **Scraping Implementation**
+   - Uses BeautifulSoup and requests for web scraping
+   - Implements intelligent retry mechanisms
+   - Supports proxy rotation
+   - Implements session management
+   - Uses rotating user agents
+
+2. **AI Integration**
+   - Gemini API integration
+   - LangChain workflow management
+   - Context-aware responses
+   - Follow-up question handling
+   - Product comparison logic
+
+3. **Performance Metrics**
+   - Request rate limiting
+   - Response time tracking
+   - Error rate monitoring
+   - Cache hit ratio
+   - Memory usage optimization
+
+## Requirements
 
 - Python 3.8 or higher
 - Google Gemini API key (sign up at [Google AI Studio](https://ai.google.dev/))
 
-### From Source
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -32,139 +161,55 @@ A Python-based chatbot that finds the best deals across multiple shopping sites 
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. Install the package in development mode:
+3. Install dependencies:
    ```bash
-   pip install -e .
+   pip install -r requirements.txt
    ```
 
-4. Create a `.env` file with your Gemini API key:
-   ```
-   GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-
-### Using pip
-
-```bash
-pip install dealfinder-ai
-```
-
-After installation, create a `.env` file in your working directory with your Gemini API key.
+4. Configure your environment:
+   - Set up your Google Gemini API key in the configuration
+   - Configure any platform-specific settings in the config files
 
 ## Usage
 
-### Terminal Interface
+The system can be used to:
 
-Run the chatbot in terminal mode:
-
-```bash
-# Using real web scrapers
-dealfinder --real-scrapers
-
-# Using mock scrapers (faster for development)
-dealfinder
-```
-
-### Web Interface
-
-Run the chatbot as a web service:
-
-```bash
-# Using real web scrapers
-dealfinder --web --real-scrapers
-
-# Using mock scrapers
-dealfinder --web
-```
-
-Then open a browser and go to http://localhost:5000
-
-### Command Line Options
-
-```
-usage: dealfinder [-h] [--api-key API_KEY] [--web] [--port PORT] [--real-scrapers]
-
-DealFinder AI - Find the best deals online
-
-options:
-  -h, --help           show this help message and exit
-  --api-key API_KEY    Gemini API Key (optional, can also use GEMINI_API_KEY env var)
-  --web                Run as a web service instead of terminal
-  --port PORT          Port for web service (default: 5000)
-  --real-scrapers      Use real web scrapers instead of mock implementations
-```
-
-## Example Queries
-
-- "Find me the best deals on wireless headphones"
-- "I need a budget laptop for college under $500"
-- "What are the top-rated coffee makers on sale right now?"
-- "Show me the cheapest gaming keyboards with mechanical switches"
-- "Find deals on 4K monitors with USB-C"
+1. Search for products across multiple platforms simultaneously
+2. Get real-time price comparisons
+3. Find the best deals based on various criteria
+4. Get detailed product information including reviews and ratings
 
 ## Project Structure
 
 ```
 dealfinder-ai/
-├── dealfinder/                  # Main package directory
-│   ├── __init__.py              # Package initialization
-│   ├── agents/                  # All agent implementations
-│   │   ├── __init__.py
-│   │   ├── base.py              # Base Agent and MCPMessage classes
-│   │   ├── gemini_agent.py      # Gemini API integration
-│   │   ├── aggregator_agent.py  # Results aggregation and ranking
-│   │   ├── presentation_agent.py # Result presentation formatting
-│   │   └── scrapers/            # Scraper implementations
-│   │       ├── __init__.py
-│   │       ├── amazon.py        # Amazon scraper implementation
-│   │       ├── walmart.py       # Walmart scraper implementation
-│   │       ├── ebay.py          # eBay scraper implementation
-│   │       └── mock/            # Mock implementations for testing
-│   ├── controller.py            # Main controller class
-│   ├── config.py                # Configuration settings
-│   └── utils/                   # Utility functions
-│       ├── __init__.py
-│       ├── logging.py           # Logging configuration
-│       └── parsing.py           # Text parsing utilities
-├── templates/                   # Web interface templates
-│   └── index.html               # Main HTML template
-├── static/                      # Static web assets
-├── main.py                      # Main entry point script
-├── setup.py                     # Package setup file
-├── requirements.txt             # Dependencies
-└── README.md                    # This file
+├── dealfinder/
+│   ├── agents/
+│   │   ├── base.py          # Base agent class
+│   │   ├── scraping/        # Web scraping agents
+│   │   ├── presentation.py  # User interaction agent
+│   │   └── gemini_agent.py  # Gemini integration
+│   ├── langchain_integration/
+│   │   └── graph.py         # Knowledge graph integration
+│   └── utils/
+│       └── logging.py       # Logging utilities
+└── config/                  # Configuration files
 ```
 
-## Extending the Project
+## Contributing
 
-### Adding New Shopping Sites
-
-1. Create a new scraper agent class in `dealfinder/agents/scrapers/`
-2. Implement the required methods (similar to existing scrapers)
-3. Update the `get_scraper_agents` function in `dealfinder/agents/scrapers/__init__.py`
-4. Add the new scraper to the controller in `dealfinder/controller.py`
-
-### Improving the Ranking Algorithm
-
-Modify the `_rank_products` method in `dealfinder/agents/aggregator_agent.py` to adjust how products are scored and ranked.
-
-### Enhancing the User Interface
-
-- Terminal UI: Modify the presentation formatting in `dealfinder/agents/presentation_agent.py`
-- Web UI: Update the HTML/CSS/JS in the `templates` and `static` directories
-
-## Web Scraping Notice
-
-This project includes functionality for scraping public product information from e-commerce websites. When using the real web scrapers, please be respectful of the websites' terms of service and implement appropriate rate limiting and caching to minimize server load.
-
-The mock scrapers are provided as an alternative for development and testing purposes.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
-- Google Gemini API for natural language processing
-- BeautifulSoup and requests for web scraping capabilities
-- Flask for the web interface
-- Rich for beautiful terminal output
+- Uses Google Gemini for AI-powered features
+- Built with Python and modern web scraping techniques
+- Inspired by the need for better shopping assistants
