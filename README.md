@@ -179,6 +179,34 @@ The system can be used to:
 3. Find the best deals based on various criteria
 4. Get detailed product information including reviews and ratings
 
+### Types of Questions You Can Ask
+
+You can ask DealFinder AI natural language questions about products and deals. Here are some examples:
+
+#### Product Search
+- "Find me the best deals on wireless headphones"
+- "I need a budget laptop for college under $500"
+- "What are the top-rated coffee makers on sale right now?"
+- "Show me gaming monitors under $300"
+
+#### Price Comparison
+- "Compare prices of iPhone 14 Pro across Amazon and Walmart"
+- "Which store has the best deal on PlayStation 5?"
+- "Is this product cheaper on eBay or Amazon?"
+
+#### Product Information
+- "Tell me more about this product"
+- "What are the specifications of this laptop?"
+- "Show me customer reviews for this item"
+- "What's the return policy for this product?"
+
+#### Follow-up Questions
+You can ask follow-up questions about any product:
+- "What about the newer model?"
+- "Are there any accessories I should consider?"
+- "Can you show me similar products?"
+- "What's the warranty coverage?"
+
 ### Running the Application
 
 #### Terminal Mode

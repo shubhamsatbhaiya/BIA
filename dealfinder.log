@@ -16008,3 +16008,208 @@ Product 5: Apple iPhone 16, US Version, 128GB, Ultramarine for Boost (Renewed)
 2025-05-13 23:27:32,824 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
 2025-05-13 23:27:32,824 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
 2025-05-13 23:27:32,824 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:18:58,792 - DealFinderAI - INFO - Logging initialized
+2025-05-14 19:18:58,792 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 19:18:58,792 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 19:18:58,839 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:18:58,839 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:18:58,839 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:18:58,839 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:18:58,839 - DealFinderAI.Main - INFO - Web app using LangChain implementation with Gemini model
+2025-05-14 19:18:59,336 - DealFinderAI - INFO - Logging initialized
+2025-05-14 19:18:59,337 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 19:18:59,337 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 19:18:59,368 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:18:59,368 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:18:59,368 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:18:59,368 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:18:59,368 - DealFinderAI.Main - INFO - Web app using LangChain implementation with Gemini model
+2025-05-14 19:19:35,893 - DealFinderAI.Controller - INFO - Processing user query: find me best deal on apple magic keyboard under 100 dollar
+2025-05-14 19:19:35,894 - DealFinderAI.ChatMemoryAgent - INFO - Analyzing query: 'find me best deal on apple magic keyboard under 100 dollar' for conversation session_20250514191907_b63a4bf7
+2025-05-14 19:19:35,894 - DealFinderAI.ChatMemoryAgent - INFO - No product context available for this conversation
+2025-05-14 19:19:35,894 - DealFinderAI.Controller - INFO - Analyze response: {'is_follow_up': False, 'focused_product': None, 'referenced_products': [], 'products': []}
+2025-05-14 19:19:35,894 - DealFinderAI.Controller - INFO - Is follow-up? False
+2025-05-14 19:19:35,894 - DealFinderAI.Controller - INFO - Referenced products: 0
+2025-05-14 19:19:35,894 - DealFinderAI.Controller - INFO - Processing as new search query
+2025-05-14 19:19:35,895 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: find me best deal on apple magic keyboard under 100 dollar
+2025-05-14 19:19:37,042 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "keyboard",
+  "keywords": ["apple", "magic keyboard"],
+  "price_range": [0, 100],
+  "brands": ["Apple"],
+  "features": [],
+  "sorting_preference": "price_low_to_high",
+  "buy_it_now": true
+}
+```
+
+2025-05-14 19:19:37,043 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'keyboard', 'keywords': ['apple', 'magic keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-14 19:19:37,043 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'keyboard', 'keywords': ['apple', 'magic keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-14 19:19:37,043 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for Amazon's search engine:
+            
+            "keyboard apple magic keyboard Apple"
+            
+            For Amazon searches, please:
+            1. Focus on product-specific model numbers and identifiers if present
+            2. Include key brand names (Amazon's A9 algorithm prioritizes brand matches)
+            3. Remove generic words that may dilute results
+            4. Add Amazon-specific terms that might improve results (like "Amazon's Choice" if looking for quality products)
+            5. Optimize for Amazon's search algorithm which prioritizes exact matches and recent sales volume
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - amazon_category: Any Amazon department/category suggestion (Electronics, Books, etc.)
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            - amazon_search_filters: Any Amazon-specific filters to apply (Prime eligible, etc.)
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:19:37,959 - DealFinderAI.AmazonScraperAgent - INFO - Optimized search parameters: {'product_type': 'keyboard', 'keywords': ['Apple Magic Keyboard', 'Apple Magic Keyboard 10.9', 'Magic Keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True, 'category': 'Electronics', 'must_include_terms': ['Apple', 'Magic Keyboard'], 'exclude_terms': ['keyboard', 'Apple'], 'amazon_filters': ['Prime Eligible', 'New']}
+2025-05-14 19:19:37,960 - DealFinderAI.AmazonScraperAgent - INFO - Built optimized Amazon search query: Apple keyboard Apple Magic Keyboard Apple Magic Keyboard 10.9 Magic Keyboard
+2025-05-14 19:19:37,960 - DealFinderAI.AmazonScraperAgent - INFO - Built Amazon query: Apple keyboard Apple Magic Keyboard Apple Magic Keyboard 10.9 Magic Keyboard
+2025-05-14 19:19:37,960 - DealFinderAI.AmazonScraperAgent - INFO - Making Amazon search request with params: {'k': 'Apple keyboard Apple Magic Keyboard Apple Magic Keyboard 10.9 Magic Keyboard', 'ref': 'nb_sb_noss', 'crid': 1747264777, 'i': 'aps', 'search-alias': 'electronics', 'low-price': 0, 'high-price': 100, 's': 'price-asc-rank'}
+2025-05-14 19:19:39,493 - DealFinderAI.AmazonScraperAgent - INFO - Found 52 product divs in search results
+2025-05-14 19:19:39,499 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Clear TPU Keyboard Protective Skin Cover Compatible for 2024 iPad Pro 11 inch M4 A2836 A2837 Magic Keyboard & 2022 iPad 10.9 inch 10th Gen Magic Keyboard Folio at 5.99 USD
+2025-05-14 19:19:39,499 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Clear TPU Keyboard Protective Skin Cover Compatible for 2024 iPad Pro 11 inch M4 A2836 A2837 Magic Keyboard & 2022 iPad 10.9 inch 10th Gen Magic Keyboard Folio at 5.99 USD
+2025-05-14 19:19:39,502 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ultra Thin Clear Keyboard Cover Skin Compatible with 2022 Apple iPad 10 10.9 inch 10th Generation Magic Keyboard Folio, 2024 iPad Pro 11 inch M4 Chip A2836 A2837 Magic Keyboard at 6.98 USD
+2025-05-14 19:19:39,502 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ultra Thin Clear Keyboard Cover Skin Compatible with 2022 Apple iPad 10 10.9 inch 10th Generation Magic Keyboard Folio, 2024 iPad Pro 11 inch M4 Chip A2836 A2837 Magic Keyboard at 6.98 USD
+2025-05-14 19:19:39,505 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Allinside at 8.09 USD
+2025-05-14 19:19:39,505 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Allinside at 8.09 USD
+2025-05-14 19:19:39,508 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: [with Function Keys] Keyboard Cover Protector Compatible with 2025 Magic Keyboard (for iPad Air 11 M3 & Pro 11 M4) / Magic Keyboard Folio (for iPad A16 & iPad 10th Gen) - Ultra Thin Skin, Transparent at 9.99 USD
+2025-05-14 19:19:39,508 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: [with Function Keys] Keyboard Cover Protector Compatible with 2025 Magic Keyboard (for iPad Air 11 M3 & Pro 11 M4) / Magic Keyboard Folio (for iPad A16 & iPad 10th Gen) - Ultra Thin Skin, Transparent at 9.99 USD
+2025-05-14 19:19:39,517 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 11.99 USD
+2025-05-14 19:19:39,517 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 11.99 USD
+2025-05-14 19:19:39,521 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: 11 inch Laptop Sleeve Carrying Case for 11-in iPad A16 & iPad Air M3 M2 2025-2024, 11 inch iPad Pro M4 with Magic Keyboard Water-Resistant Shockproof Handle Bag Cover w/Accessory Pocket -Mint Green at 13.95 USD
+2025-05-14 19:19:39,521 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: 11 inch Laptop Sleeve Carrying Case for 11-in iPad A16 & iPad Air M3 M2 2025-2024, 11 inch iPad Pro M4 with Magic Keyboard Water-Resistant Shockproof Handle Bag Cover w/Accessory Pocket -Mint Green at 13.95 USD
+2025-05-14 19:19:39,529 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 14.99 USD
+2025-05-14 19:19:39,529 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 14.99 USD
+2025-05-14 19:19:39,538 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 15.99 USD
+2025-05-14 19:19:39,538 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Lacdo at 15.99 USD
+2025-05-14 19:19:39,541 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: for iPad 10th Generation Case with Keyboard, iPad Case for Apple 10th Gen 2022 10.9", Keyboard Case with Pencil Holder, Detachable BT Keyboard, Rechargeable Keyboard for New iPad 10th Gen 2022 (Blue) at 16.49 USD
+2025-05-14 19:19:39,541 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: for iPad 10th Generation Case with Keyboard, iPad Case for Apple 10th Gen 2022 10.9", Keyboard Case with Pencil Holder, Detachable BT Keyboard, Rechargeable Keyboard for New iPad 10th Gen 2022 (Blue) at 16.49 USD
+2025-05-14 19:19:39,544 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: MoKo at 19.99 USD
+2025-05-14 19:19:39,544 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: MoKo at 19.99 USD
+2025-05-14 19:19:40,323 - DealFinderAI.AmazonScraperAgent - INFO - Extracted 10 products from Amazon
+2025-05-14 19:19:40,326 - DealFinderAI.AmazonScraperAgent - INFO - Applying relevance filtering to 10 products
+2025-05-14 19:19:40,326 - DealFinderAI.AmazonScraperAgent - INFO - Filtered to 3 most relevant products
+2025-05-14 19:19:40,326 - DealFinderAI.Controller - INFO - Amazon response content: {'source': 'Amazon', 'query': 'Apple keyboard Apple Magic Keyboard Apple Magic Keyboard 10.9 Magic Keyboard', 'products': [{'title': 'Ultra Thin Clear Keyboard Cover Skin Compatible with 2022 Apple iPad 10 10.9 inch 10th Generation Magic Keyboard Folio, 2024 iPad Pro 11 inch M4 Chip A2836 A2837 Magic Keyboard', 'price': 6.98, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Ultra-Clear-Keyboard-Compatible-Generation/dp/B0BZSQSJXJ/ref=sr_1_2?crid=1747264777&dib=eyJ2IjoiMSJ9.d98tiYQQ5mGYZOtTVNt8S2hkCTBQ7vACYjqd6IvljqJWEYR6jBa2XUea7wHx5c97oaADcsgpAtNFyklWHOJm1oIYprj4uMQ5NSCAlTcsXRmh-ggHneF9bYnBEVvawSOVMvZEf8WGgdq_tfWlHz7gnVGQi1bgkWUt_xWy2pt59EOgimbmakth73mTzImOlJvXodIjI45FQTGiB_IWhTVdpCr9965phluoGGtkVcGsHxujgTmmJkCtX1s6KJs957D9M2IHcenk2vwKLW28Hp1vaMlPs6pE1yzxVGHTuudOuws.Zbgp_2i0pfRRm1vjzcV4EbUGLhI_sKk4ipHMrv7naCY&dib_tag=se&keywords=Apple+keyboard+Apple+Magic+Keyboard+Apple+Magic+Keyboard+10.9+Magic+Keyboard&qid=1747264778&refinements=p_36%3A-10000&s=electronics&sr=1-2', 'image_url': 'https://m.media-amazon.com/images/I/51qHnEhZDeL._AC_UL320_.jpg', 'rating': 4.3, 'reviews': 68, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B0BZSQSJXJ', 'description': 'Ultra Thin Clear Keyboard Cover Skin Compatible with 2022 Apple iPad 10 10.9 inch 10th Generation Magic Keyboard Folio, 2024 iPad Pro 11 inch M4 Chip A2836 A2837 Magic Keyboard 4.3 out of 5 stars 68 Price, product page$6.98$6.98 FREE delivery Mon, May 19 on $35 of items shipped by AmazonOr fastest delivery Fri, May 16Add to cart', 'delivery_info': '', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 34}, {'title': 'for iPad 10th Generation Case with Keyboard, iPad Case for Apple 10th Gen 2022 10.9", Keyboard Case with Pencil Holder, Detachable BT Keyboard, Rechargeable Keyboard for New iPad 10th Gen 2022 (Blue)', 'price': 16.49, 'was_price': 32.99, 'currency': 'USD', 'url': 'https://www.amazon.com/iPad-Generation-Keyboard-Detachable-Rechargeable/dp/B0CWNLTVZP/ref=sr_1_9?crid=1747264777&dib=eyJ2IjoiMSJ9.d98tiYQQ5mGYZOtTVNt8S2hkCTBQ7vACYjqd6IvljqJWEYR6jBa2XUea7wHx5c97oaADcsgpAtNFyklWHOJm1oIYprj4uMQ5NSCAlTcsXRmh-ggHneF9bYnBEVvawSOVMvZEf8WGgdq_tfWlHz7gnVGQi1bgkWUt_xWy2pt59EOgimbmakth73mTzImOlJvXodIjI45FQTGiB_IWhTVdpCr9965phluoGGtkVcGsHxujgTmmJkCtX1s6KJs957D9M2IHcenk2vwKLW28Hp1vaMlPs6pE1yzxVGHTuudOuws.Zbgp_2i0pfRRm1vjzcV4EbUGLhI_sKk4ipHMrv7naCY&dib_tag=se&keywords=Apple+keyboard+Apple+Magic+Keyboard+Apple+Magic+Keyboard+10.9+Magic+Keyboard&qid=1747264778&refinements=p_36%3A-10000&s=electronics&sr=1-9', 'image_url': 'https://m.media-amazon.com/images/I/61pgV-mrtvL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 97, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B0CWNLTVZP', 'description': 'for iPad 10th Generation Case with Keyboard, iPad Case for Apple 10th Gen 2022 10.9", Keyboard Case with Pencil Holder, Detachable BT Keyboard, Rechargeable Keyboard for New iPad 10th Gen 2022 (Blue) 4.5 out of 5 stars 97 Limited time deal Price, product page$16.49$16.49 Typical: $32.99Typical: $32.99$32.99 FREE delivery Mon, May 19 on $35 of items shipped by AmazonOr fastest delivery Tomorrow, May 15Add to cart', 'delivery_info': 'Typical:', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 22}, {'title': 'Allinside', 'price': 8.09, 'was_price': 10.99, 'currency': 'USD', 'url': 'https://www.amazon.com/Allinside-Magic-Wireless-Bluetooth-Keyboard/dp/B07KTW5N3L/ref=sr_1_3?crid=1747264777&dib=eyJ2IjoiMSJ9.d98tiYQQ5mGYZOtTVNt8S2hkCTBQ7vACYjqd6IvljqJWEYR6jBa2XUea7wHx5c97oaADcsgpAtNFyklWHOJm1oIYprj4uMQ5NSCAlTcsXRmh-ggHneF9bYnBEVvawSOVMvZEf8WGgdq_tfWlHz7gnVGQi1bgkWUt_xWy2pt59EOgimbmakth73mTzImOlJvXodIjI45FQTGiB_IWhTVdpCr9965phluoGGtkVcGsHxujgTmmJkCtX1s6KJs957D9M2IHcenk2vwKLW28Hp1vaMlPs6pE1yzxVGHTuudOuws.Zbgp_2i0pfRRm1vjzcV4EbUGLhI_sKk4ipHMrv7naCY&dib_tag=se&keywords=Apple+keyboard+Apple+Magic+Keyboard+Apple+Magic+Keyboard+10.9+Magic+Keyboard&qid=1747264778&refinements=p_36%3A-10000&s=electronics&sr=1-3', 'image_url': 'https://m.media-amazon.com/images/I/712oiCK2BIS._AC_UL320_.jpg', 'rating': 4.3, 'reviews': 1896, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B07KTW5N3L', 'description': 'AllinsideRainbow Cover for Apple iMac Magic Wireless Keyboard with Numeric Keypad MQ052LL/A A1843 US Layout 4.3 out of 5 stars 1,896 Price, product page$8.09$8.09 List Price: $10.99List Price: $10.99$10.9910% off promotion available FREE delivery Mon, May 19 on $35 of items shipped by AmazonOr fastest delivery Tomorrow, May 15See options', 'delivery_info': 'List Price:', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 18}]}
+2025-05-14 19:19:40,327 - DealFinderAI.Controller - INFO - Amazon returned 3 products
+2025-05-14 19:19:40,327 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'keyboard', 'keywords': ['apple', 'magic keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-14 19:19:40,327 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for Walmart's search engine:
+            
+            "keyboard apple magic keyboard Apple"
+            
+            For Walmart searches, please:
+            1. Focus on model numbers and specific identifiers if present
+            2. Include key brand names (Walmart's search works well with brand names)
+            3. Remove generic words that may dilute results
+            4. Add Walmart-specific terms that might improve results (like "Rollback" if looking for deals)
+            5. Prioritize precise product names and specifications
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - department_hint: Any Walmart department suggestion (Electronics, Home, etc.)
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            - walmart_specific_filters: Any Walmart-specific filters to apply
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:19:41,251 - DealFinderAI.WalmartScraperAgent - INFO - Optimized search parameters: {'product_type': 'keyboard', 'keywords': ['Apple Magic Keyboard', 'Apple Magic Keyboard model number (if known)', 'Apple Wireless Keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True, 'department': 'Electronics', 'must_include_terms': ['Apple', 'Magic Keyboard'], 'exclude_terms': ['keyboard', 'Apple'], 'walmart_filters': ['Rollback', 'Clearance', 'New']}
+2025-05-14 19:19:41,251 - DealFinderAI.WalmartScraperAgent - INFO - Built optimized Walmart search query: Apple keyboard Apple Magic Keyboard Apple Magic Keyboard model number (if known) Apple Wireless Keyboard
+2025-05-14 19:19:41,252 - DealFinderAI.WalmartScraperAgent - INFO - Built Walmart query: Apple keyboard Apple Magic Keyboard Apple Magic Keyboard model number (if known) Apple Wireless Keyboard
+2025-05-14 19:19:41,252 - DealFinderAI.WalmartScraperAgent - INFO - Making Walmart search request with params: {'q': 'Apple keyboard Apple Magic Keyboard Apple Magic Keyboard model number (if known) Apple Wireless Keyboard Electronics', 'page': 1, 'affinityOverride': 'default', 'max_price': 100, 'sort': 'price_low'}
+2025-05-14 19:19:51,304 - DealFinderAI.WalmartScraperAgent - WARNING - Request error: HTTPSConnectionPool(host='www.walmart.com', port=443): Max retries exceeded with url: /search?q=Apple+keyboard+Apple+Magic+Keyboard+Apple+Magic+Keyboard+model+number+%28if+known%29+Apple+Wireless+Keyboard+Electronics&page=1&affinityOverride=default&max_price=100&sort=price_low (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x110f66e40>, 'Connection to www.walmart.com timed out. (connect timeout=10)')), retrying
+2025-05-14 19:19:52,307 - DealFinderAI.WalmartScraperAgent - INFO - Making Walmart search request with params: {'q': 'Apple keyboard Apple Magic Keyboard Apple Magic Keyboard model number (if known) Apple Wireless Keyboard Electronics', 'page': 1, 'affinityOverride': 'default', 'max_price': 100, 'sort': 'price_low'}
+2025-05-14 19:19:58,065 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 0 products from JSON data
+2025-05-14 19:19:58,067 - DealFinderAI.WalmartScraperAgent - INFO - JSON extraction failed, falling back to HTML extraction
+2025-05-14 19:19:58,068 - DealFinderAI.WalmartScraperAgent - INFO - Found 1 product divs in HTML
+2025-05-14 19:20:00,455 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:20:00,455 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: DESIGNICE Lipstick Case,With Keychain Keychain,Convenient to Carry Keychains Women,Red2 at 12.24 USD
+2025-05-14 19:20:00,456 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 1 products from HTML
+2025-05-14 19:20:00,456 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: DESIGNICE Lipstick Case,With Keychain Keychain,Convenient to Carry Keychains Women,Red2 at 12.24 USD
+2025-05-14 19:20:01,931 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 1 products from Walmart
+2025-05-14 19:20:01,932 - DealFinderAI.Controller - INFO - Walmart returned 1 products
+2025-05-14 19:20:01,932 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'keyboard', 'keywords': ['apple', 'magic keyboard'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True}
+2025-05-14 19:20:01,932 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for eBay's search engine:
+            
+            "keyboard apple magic keyboard Apple"
+            
+            For eBay searches, please:
+            1. Focus on exact model numbers and specific part identifiers if present
+            2. Include key brand names
+            3. Remove generic words that may dilute results
+            4. Add eBay-specific terms that might improve results
+            5. Optimize for finding the most relevant listings
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - category_hints: Any eBay category suggestions
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:20:03,197 - DealFinderAI.EbayScraperAgent - INFO - Optimized search parameters: {'product_type': 'keyboard', 'keywords': ['Apple Magic Keyboard', 'Apple Magic Keyboard Model A2449', 'Apple Magic Keyboard with Numeric Keypad', 'Magic Keyboard 11 inch', 'Apple Magic Keyboard 10.9 inch'], 'price_range': [0, 100], 'brands': ['Apple'], 'features': [], 'sorting_preference': 'price_low_to_high', 'buy_it_now': True, 'category_hints': ['Computers/Tablets & Networking/Computer Components & Parts/Keyboards', 'Electronics/Computers & Tablets/Accessories'], 'must_include_terms': ['Apple'], 'exclude_terms': ['keyboard']}
+2025-05-14 19:20:03,197 - DealFinderAI.EbayScraperAgent - INFO - Built optimized eBay search query: keyboard Apple Apple Magic Keyboard Apple Magic Keyboard Model A2449 Apple Magic Keyboard with Numeric Keypad
+2025-05-14 19:20:03,198 - DealFinderAI.EbayScraperAgent - INFO - Built eBay query: keyboard Apple Apple Magic Keyboard Apple Magic Keyboard Model A2449 Apple Magic Keyboard with Numeric Keypad
+2025-05-14 19:20:03,198 - DealFinderAI.EbayScraperAgent - INFO - Making eBay search request with params: {'_nkw': 'keyboard Apple Apple Magic Keyboard Apple Magic Keyboard Model A2449 Apple Magic Keyboard with Numeric Keypad Computers/Tablets & Networking/Computer Components & Parts/Keyboards', '_sacat': '0', '_ipg': '96', '_udlo': 0, '_udhi': 100, '_sop': '15', 'LH_BIN': '1'}
+2025-05-14 19:20:05,133 - DealFinderAI.EbayScraperAgent - INFO - Found 122 product listings
+2025-05-14 19:20:05,135 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple A1843 Wireless Rechargeable Bluetooth Magic Keyboard With Numeric Keypad at 45.0 USD
+2025-05-14 19:20:05,135 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple A1843 Wireless Rechargeable Bluetooth Magic Keyboard With Numeric Keypad at 45.0 USD
+2025-05-14 19:20:05,136 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple Magic Keyboard With Touch ID Without Numeric Keypad A2449 - Good at 89.99 USD
+2025-05-14 19:20:05,136 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple Magic Keyboard With Touch ID Without Numeric Keypad A2449 - Good at 89.99 USD
+2025-05-14 19:20:05,137 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Genuine Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) A1843 at 50.0 USD
+2025-05-14 19:20:05,137 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Genuine Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) A1843 at 50.0 USD
+2025-05-14 19:20:05,138 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple A1843 Wireless Rechargeable Bluetooth Magic Keyboard With Numeric Keypad at 60.0 USD
+2025-05-14 19:20:05,138 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple A1843 Wireless Rechargeable Bluetooth Magic Keyboard With Numeric Keypad at 60.0 USD
+2025-05-14 19:20:05,139 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Genuine Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) A1843 at 55.0 USD
+2025-05-14 19:20:05,139 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Genuine Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) A1843 at 55.0 USD
+2025-05-14 19:20:05,140 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: (New ) A1843  Apple Magic Keyboard with Numeric Keypad at 65.0 USD
+2025-05-14 19:20:05,140 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: (New ) A1843  Apple Magic Keyboard with Numeric Keypad at 65.0 USD
+2025-05-14 19:20:05,141 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: A1843  Apple Magic Keyboard with Numeric Keypad at 75.0 USD
+2025-05-14 19:20:05,141 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: A1843  Apple Magic Keyboard with Numeric Keypad at 75.0 USD
+2025-05-14 19:20:05,142 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) - A1843 at 79.95 USD
+2025-05-14 19:20:05,142 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Apple Magic Keyboard with Numeric Keypad (Space Gray/ Black) - A1843 at 79.95 USD
+2025-05-14 19:20:05,877 - DealFinderAI.EbayScraperAgent - INFO - Extracted 8 products from eBay
+2025-05-14 19:20:05,878 - DealFinderAI.EbayScraperAgent - INFO - Applying relevance filtering to 8 products
+2025-05-14 19:20:05,879 - DealFinderAI.EbayScraperAgent - INFO - Filtered to 5 most relevant products
+2025-05-14 19:20:05,879 - DealFinderAI.Controller - INFO - eBay returned 5 products
+2025-05-14 19:20:05,879 - DealFinderAI.Controller - INFO - Total products before aggregation: 9
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: find me best deal on apple magic keyboard under 100 dollar
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Source Amazon: 3 products
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Source Walmart: 1 products
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Source eBay: 5 products
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Total products extracted: 9
+2025-05-14 19:20:05,880 - DealFinderAI.ResultsAggregatorAgent - INFO - Ranking 9 products
+2025-05-14 19:20:05,881 - DealFinderAI.ResultsAggregatorAgent - INFO - Sorted 9 products by score
+2025-05-14 19:20:05,881 - DealFinderAI.ResultsAggregatorAgent - INFO - Returning 9 diversified products
+2025-05-14 19:20:05,881 - DealFinderAI.ResultsAggregatorAgent - INFO - Products after ranking: 9
+2025-05-14 19:20:05,881 - DealFinderAI.ResultsAggregatorAgent - INFO - Final products: 9
+2025-05-14 19:20:05,881 - DealFinderAI.Controller - INFO - Products after aggregation: 9
+2025-05-14 19:20:05,882 - DealFinderAI.ProductComparisonAgent - INFO - Comparing products for query: find me best deal on apple magic keyboard under 100 dollar
+2025-05-14 19:20:05,882 - DealFinderAI.ProductComparisonAgent - INFO - Found 9 products to compare
+2025-05-14 19:20:05,882 - DealFinderAI.ProductComparisonAgent - INFO - Grouping 9 products
+2025-05-14 19:20:05,883 - DealFinderAI.ProductComparisonAgent - INFO - Created 1 product groups
+2025-05-14 19:20:05,883 - DealFinderAI.ProductComparisonAgent - INFO - Analyzing product group with 4 items
+2025-05-14 19:20:05,884 - DealFinderAI.ProductComparisonAgent - INFO - Best deal: Apple A1843 Wireless Rechargeable Bluetooth Magic Keyboard With Numeric Keypad at $60.00
+2025-05-14 19:20:05,884 - DealFinderAI.ProductComparisonAgent - INFO - Savings: $5.50 (8.4%)
+2025-05-14 19:20:05,884 - DealFinderAI.ChatMemoryAgent - INFO - Storing context for conversation session_20250514191907_b63a4bf7
+2025-05-14 19:20:05,884 - DealFinderAI.ChatMemoryAgent - INFO - Storing 9 products for conversation session_20250514191907_b63a4bf7
+2025-05-14 19:20:05,885 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 9 products
+2025-05-14 19:20:05,885 - DealFinderAI.ChatMemoryAgent - INFO - Storing context for conversation session_20250514191907_b63a4bf7
+2025-05-14 19:20:05,885 - DealFinderAI.ChatMemoryAgent - INFO - Storing 9 products for conversation session_20250514191907_b63a4bf7
+2025-05-14 19:20:05,886 - DealFinderAI.Controller - INFO - Successfully stored search results in memory
+2025-05-14 19:43:28,994 - DealFinderAI - INFO - Logging initialized
+2025-05-14 19:43:28,994 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 19:43:28,994 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 19:43:28,995 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:43:28,995 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:43:28,995 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:43:28,995 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
