@@ -82,5 +82,5 @@ DEFAULT_SORT_PREFERENCE = "price_low_to_high"
 
 # LangChain Integration Configuration (NEW)
 ENABLE_LANGCHAIN = True  # Feature flag to enable/disable LangChain integration
-DEFAULT_LLM_MODEL = "gemini-pro"  # Using Gemini model only
+DEFAULT_LLM_MODEL = "gemini-1.5-flash"  # Using Gemini model only
 LANGCHAIN_MEMORY_TTL = 3600  # Time to live for conversation memory (in seconds)

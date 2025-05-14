@@ -179,21 +179,47 @@ The system can be used to:
 3. Find the best deals based on various criteria
 4. Get detailed product information including reviews and ratings
 
+### Running the Application
+
+#### Terminal Mode
+To run in terminal mode:
+```bash
+python main.py
+```
+
+#### Web Interface Mode
+To run in web interface mode:
+```bash
+python main.py --web
+```
+
 ## Project Structure
 
 ```
 dealfinder-ai/
-├── dealfinder/
-│   ├── agents/
+├── dealfinder/                 # Main application package
+│   ├── __init__.py           # Package initialization
+│   ├── agents/               # AI agents implementation
 │   │   ├── base.py          # Base agent class
 │   │   ├── scraping/        # Web scraping agents
+│   │   ├── product_comparison.py  # Product comparison agent
 │   │   ├── presentation.py  # User interaction agent
 │   │   └── gemini_agent.py  # Gemini integration
-│   ├── langchain_integration/
+│   ├── config.py            # Main configuration
+│   ├── controller.py        # Main application controller
+│   ├── langchain_integration/  # LangChain integration
+│   │   ├── controller.py    # LangChain controller
 │   │   └── graph.py         # Knowledge graph integration
-│   └── utils/
-│       └── logging.py       # Logging utilities
-└── config/                  # Configuration files
+│   ├── static/              # Static web assets
+│   └── utils/               # Utility modules
+│       ├── logging.py       # Logging utilities
+│       └── config.py        # Configuration utilities
+├── templates/               # Flask templates
+├── main.py                 # Main entry point
+├── requirements.txt        # Python dependencies
+├── setup.py               # Package setup
+├── .env                   # Environment variables
+└── venv/                  # Python virtual environment
 ```
 
 ## Contributing

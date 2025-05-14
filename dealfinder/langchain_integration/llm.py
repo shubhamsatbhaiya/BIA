@@ -23,7 +23,7 @@ def get_llm(model_name: Optional[str] = None) -> LLM:
     
     # Ensure we're using a Gemini model
     if not model.startswith("gemini-"):
-        model = "gemini-pro"  # Default to gemini-pro if not a Gemini model
+        model = "gemini-1.5-flash"  # Default to gemini-pro if not a Gemini model
         
     # Initialize Gemini model
     return ChatGoogleGenerativeAI(
