@@ -152,7 +152,7 @@ The system is built using a sophisticated Multi-Agent Communication Protocol (MC
 1. Clone the repository:
    ```bash
    git clone https://github.com/shubhamsatbhaiya/BIA.git
-   cd dealfinder-ai
+   cd BIA
    ```
 
 2. Create a virtual environment:
