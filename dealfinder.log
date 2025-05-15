@@ -16213,3 +16213,302 @@ Product 5: Apple iPhone 16, US Version, 128GB, Ultramarine for Boost (Renewed)
 2025-05-14 19:43:28,995 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
 2025-05-14 19:43:28,995 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
 2025-05-14 19:43:28,995 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:50:17,645 - DealFinderAI - INFO - Logging initialized
+2025-05-14 19:50:17,646 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 19:50:17,646 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 19:50:17,646 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:50:17,646 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:50:17,646 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 19:50:17,646 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 19:50:34,247 - DealFinderAI.Controller - INFO - Processing user query: What are the top-rated coffee makers on sale right now?
+2025-05-14 19:50:34,247 - DealFinderAI.ChatMemoryAgent - INFO - Analyzing query: 'What are the top-rated coffee makers on sale right now?' for conversation 20250514195017
+2025-05-14 19:50:34,247 - DealFinderAI.ChatMemoryAgent - INFO - No product context available for this conversation
+2025-05-14 19:50:34,247 - DealFinderAI.Controller - INFO - Analyze response: {'is_follow_up': False, 'focused_product': None, 'referenced_products': [], 'products': []}
+2025-05-14 19:50:34,247 - DealFinderAI.Controller - INFO - Is follow-up? False
+2025-05-14 19:50:34,247 - DealFinderAI.Controller - INFO - Referenced products: 0
+2025-05-14 19:50:34,247 - DealFinderAI.Controller - INFO - Processing as new search query
+2025-05-14 19:50:34,247 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: What are the top-rated coffee makers on sale right now?
+2025-05-14 19:50:35,270 - DealFinderAI.GeminiAgent - WARNING - Failed to parse Gemini response as JSON: ```json
+{
+  "product_type": "coffee makers",
+  "keywords": ["top-rated", "on sale"],
+  "price_range": null,
+  "brands": null,
+  "features": null,
+  "sorting_preference": "rating",
+  "buy_it_now": true
+}
+```
+
+2025-05-14 19:50:35,271 - DealFinderAI.Controller - INFO - Parsed search parameters: {'product_type': 'coffee makers', 'keywords': ['top-rated', 'on sale'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True}
+2025-05-14 19:50:35,271 - DealFinderAI.AmazonScraperAgent - INFO - Searching Amazon for: {'product_type': 'coffee makers', 'keywords': ['top-rated', 'on sale'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True}
+2025-05-14 19:50:35,271 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for Amazon's search engine:
+            
+            "coffee makers top-rated on sale"
+            
+            For Amazon searches, please:
+            1. Focus on product-specific model numbers and identifiers if present
+            2. Include key brand names (Amazon's A9 algorithm prioritizes brand matches)
+            3. Remove generic words that may dilute results
+            4. Add Amazon-specific terms that might improve results (like "Amazon's Choice" if looking for quality products)
+            5. Optimize for Amazon's search algorithm which prioritizes exact matches and recent sales volume
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - amazon_category: Any Amazon department/category suggestion (Electronics, Books, etc.)
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            - amazon_search_filters: Any Amazon-specific filters to apply (Prime eligible, etc.)
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:50:36,514 - DealFinderAI.AmazonScraperAgent - INFO - Optimized search parameters: {'product_type': 'coffee makers', 'keywords': ['best-selling coffee makers', 'top rated coffee makers sale', "Amazon's Choice coffee maker sale"], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True, 'category': 'Kitchen & Dining', 'must_include_terms': ['sale', 'coffee maker'], 'exclude_terms': ['top-rated'], 'amazon_filters': ['Prime eligible', 'Customer reviews: 4 stars & up']}
+2025-05-14 19:50:36,515 - DealFinderAI.AmazonScraperAgent - INFO - Built optimized Amazon search query: coffee makers best-selling coffee makers top rated coffee makers sale Amazon's Choice coffee maker sale
+2025-05-14 19:50:36,515 - DealFinderAI.AmazonScraperAgent - INFO - Built Amazon query: coffee makers best-selling coffee makers top rated coffee makers sale Amazon's Choice coffee maker sale
+2025-05-14 19:50:36,515 - DealFinderAI.AmazonScraperAgent - INFO - Making Amazon search request with params: {'k': "coffee makers best-selling coffee makers top rated coffee makers sale Amazon's Choice coffee maker sale", 'ref': 'nb_sb_noss', 'crid': 1747266636, 'i': 'aps', 'search-alias': 'kitchen', 's': 'review-rank'}
+2025-05-14 19:50:38,019 - DealFinderAI.AmazonScraperAgent - INFO - Found 27 product divs in search results
+2025-05-14 19:50:38,025 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: KRUPS Essential Brewer 8 Cup Drip Coffee Maker Machine SCA-Certified, Blooming Technology, Barista-Quality, Pour-Over Coffee Machine, Easy to Clean Dishwasher Safe,Stainless Steel Design, Silver at 199.99 USD
+2025-05-14 19:50:38,025 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: KRUPS Essential Brewer 8 Cup Drip Coffee Maker Machine SCA-Certified, Blooming Technology, Barista-Quality, Pour-Over Coffee Machine, Easy to Clean Dishwasher Safe,Stainless Steel Design, Silver at 199.99 USD
+2025-05-14 19:50:38,028 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: BUNN CSB2B Speed Brew Elite 10-Cup Coffee Maker, Black/SST at 145.99 USD
+2025-05-14 19:50:38,028 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: BUNN CSB2B Speed Brew Elite 10-Cup Coffee Maker, Black/SST at 145.99 USD
+2025-05-14 19:50:38,032 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Cuisinart CHW-16 12-Cup Programmable Coffeemaker & Hot Water System New Black at 89.0 USD
+2025-05-14 19:50:38,032 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Cuisinart CHW-16 12-Cup Programmable Coffeemaker & Hot Water System New Black at 89.0 USD
+2025-05-14 19:50:38,035 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Hamilton Beach Commercial HDC311 Single-Serve Hospitality Coffee Maker at 67.09 USD
+2025-05-14 19:50:38,035 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Hamilton Beach Commercial HDC311 Single-Serve Hospitality Coffee Maker at 67.09 USD
+2025-05-14 19:50:38,038 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Cuisinart CBC-7000PCFR 14 Cup Programmable Coffee Maker (Renewed) at 59.99 USD
+2025-05-14 19:50:38,038 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Cuisinart CBC-7000PCFR 14 Cup Programmable Coffee Maker (Renewed) at 59.99 USD
+2025-05-14 19:50:38,041 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel at 79.99 USD
+2025-05-14 19:50:38,041 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel at 79.99 USD
+2025-05-14 19:50:38,044 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R) at 76.15 USD
+2025-05-14 19:50:38,044 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R) at 76.15 USD
+2025-05-14 19:50:38,048 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ninja Specialty Coffee Maker, Hot & Iced Coffee, 6 Brew Styles, 8 Sizes, Small Cup to Travel Mug, 10-Cup Carafe, Fold-Away Frother, Permanent Filter, Removable Reservoir, Black, CM401 at 129.99 USD
+2025-05-14 19:50:38,048 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Ninja Specialty Coffee Maker, Hot & Iced Coffee, 6 Brew Styles, 8 Sizes, Small Cup to Travel Mug, 10-Cup Carafe, Fold-Away Frother, Permanent Filter, Removable Reservoir, Black, CM401 at 129.99 USD
+2025-05-14 19:50:38,051 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Keurig® K-Supreme Single Serve K-Cup Pod Coffee Maker (Black) 3-Month Brewer Maintenance Kit at 143.97 USD
+2025-05-14 19:50:38,051 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Keurig® K-Supreme Single Serve K-Cup Pod Coffee Maker (Black) 3-Month Brewer Maintenance Kit at 143.97 USD
+2025-05-14 19:50:38,055 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker at 39.99 USD
+2025-05-14 19:50:38,055 - DealFinderAI.AmazonScraperAgent - INFO - Extracted product: Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker at 39.99 USD
+2025-05-14 19:50:38,832 - DealFinderAI.AmazonScraperAgent - INFO - Extracted 10 products from Amazon
+2025-05-14 19:50:38,835 - DealFinderAI.AmazonScraperAgent - INFO - Applying relevance filtering to 10 products
+2025-05-14 19:50:38,835 - DealFinderAI.AmazonScraperAgent - INFO - Filtered to 5 most relevant products
+2025-05-14 19:50:38,835 - DealFinderAI.Controller - INFO - Amazon response content: {'source': 'Amazon', 'query': "coffee makers best-selling coffee makers top rated coffee makers sale Amazon's Choice coffee maker sale", 'products': [{'title': 'BUNN CSB2B Speed Brew Elite 10-Cup Coffee Maker, Black/SST', 'price': 145.99, 'was_price': 2.92, 'currency': 'USD', 'url': 'https://www.amazon.com/BUNN-CSB2B-Speed-10-Cup-Coffee/dp/B0792T7RW1/ref=sr_1_2?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-2', 'image_url': 'https://m.media-amazon.com/images/I/61qyCwdAHXL._AC_UL320_.jpg', 'rating': 4.6, 'reviews': 2960, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B0792T7RW1', 'description': 'BUNN CSB2B Speed Brew Elite 10-Cup Coffee Maker, Black/SST 4.6 out of 5 stars 2,960 1K+ bought in past monthPrice, product page$145.99$145.99 ($2.92$2.92/Ounce) FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$87.02(12+ used & new offers)', 'delivery_info': '1K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 19}, {'title': 'Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel', 'price': 79.99, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Ninja-12-Cup-Programmable-CE251-Stainless/dp/B07S98411N/ref=sr_1_6?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-6', 'image_url': 'https://m.media-amazon.com/images/I/81+HcYgDo1L._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 25706, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B07S98411N', 'description': 'Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel 4.5 out of 5 stars 25,706 8K+ bought in past monthPrice, product page$79.99$79.99 FREE delivery Mon, May 19 Add to cartMore Buying Choices$51.74(8+ used & new offers)', 'delivery_info': '8K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16}, {'title': 'Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R)', 'price': 76.15, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Hamilton-Beach-49980A-Programmable-Stainless/dp/B00EI7DPPI/ref=sr_1_7?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-7', 'image_url': 'https://m.media-amazon.com/images/I/71N2-+T50pL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 50934, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B00EI7DPPI', 'description': 'Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R) 4.5 out of 5 stars 50,934 5K+ bought in past monthPrice, product page$76.15$76.15 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$35.61(2+ used & new offers)', 'delivery_info': '5K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16}, {'title': 'Ninja Specialty Coffee Maker, Hot & Iced Coffee, 6 Brew Styles, 8 Sizes, Small Cup to Travel Mug, 10-Cup Carafe, Fold-Away Frother, Permanent Filter, Removable Reservoir, Black, CM401', 'price': 129.99, 'was_price': 169.99, 'currency': 'USD', 'url': 'https://www.amazon.com/Ninja-Specialty-Fold-Away-Frother-CM401/dp/B07PFLM2LK/ref=sr_1_8?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-8', 'image_url': 'https://m.media-amazon.com/images/I/81BzHbm5GvL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 18682, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B07PFLM2LK', 'description': 'Ninja Specialty Coffee Maker, Hot & Iced Coffee, 6 Brew Styles, 8 Sizes, Small Cup to Travel Mug, 10-Cup Carafe, Fold-Away Frother, Permanent Filter, Removable Reservoir, Black, CM401 Options:2 sizes4.5 out of 5 stars 18,682 3K+ bought in past monthLimited time dealPrice, product page$129.99$129.99 List: $169.99List: $169.99$169.99 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$96.57(2+ used & new offers)', 'delivery_info': '3K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16}, {'title': 'Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker', 'price': 39.99, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Mr-Coffee-12-Cup-Manual-Maker/dp/B002YI49H6/ref=sr_1_10?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-10', 'image_url': 'https://m.media-amazon.com/images/I/31CSL6qZ-LL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 5707, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B002YI49H6', 'description': 'Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker 4.5 out of 5 stars 5,707 600+ bought in past monthPrice, product page$39.99$39.99 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$31.73(14+ used & new offers)', 'delivery_info': '600+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16}]}
+2025-05-14 19:50:38,836 - DealFinderAI.Controller - INFO - Amazon returned 5 products
+2025-05-14 19:50:38,837 - DealFinderAI.WalmartScraperAgent - INFO - Searching Walmart for: {'product_type': 'coffee makers', 'keywords': ['top-rated', 'on sale'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True}
+2025-05-14 19:50:38,837 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for Walmart's search engine:
+            
+            "coffee makers top-rated on sale"
+            
+            For Walmart searches, please:
+            1. Focus on model numbers and specific identifiers if present
+            2. Include key brand names (Walmart's search works well with brand names)
+            3. Remove generic words that may dilute results
+            4. Add Walmart-specific terms that might improve results (like "Rollback" if looking for deals)
+            5. Prioritize precise product names and specifications
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - department_hint: Any Walmart department suggestion (Electronics, Home, etc.)
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            - walmart_specific_filters: Any Walmart-specific filters to apply
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:50:39,852 - DealFinderAI.WalmartScraperAgent - INFO - Optimized search parameters: {'product_type': 'coffee makers', 'keywords': ['best selling coffee maker Rollback', 'Cuisinart coffee maker sale', 'Keurig coffee maker on sale', 'Mr. Coffee coffee maker deal'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True, 'department': 'Home', 'must_include_terms': ['coffee maker', 'sale'], 'exclude_terms': ['top-rated'], 'walmart_filters': ['Rollback', 'clearance']}
+2025-05-14 19:50:39,853 - DealFinderAI.WalmartScraperAgent - INFO - Built optimized Walmart search query: coffee makers best selling coffee maker Rollback Cuisinart coffee maker sale Keurig coffee maker on sale
+2025-05-14 19:50:39,853 - DealFinderAI.WalmartScraperAgent - INFO - Built Walmart query: coffee makers best selling coffee maker Rollback Cuisinart coffee maker sale Keurig coffee maker on sale
+2025-05-14 19:50:39,853 - DealFinderAI.WalmartScraperAgent - INFO - Making Walmart search request with params: {'q': 'coffee makers best selling coffee maker Rollback Cuisinart coffee maker sale Keurig coffee maker on sale Home', 'page': 1, 'affinityOverride': 'default', 'sort': 'best_match'}
+2025-05-14 19:50:42,434 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 0 products from JSON data
+2025-05-14 19:50:42,434 - DealFinderAI.WalmartScraperAgent - INFO - JSON extraction failed, falling back to HTML extraction
+2025-05-14 19:50:42,437 - DealFinderAI.WalmartScraperAgent - INFO - Found 9 product divs in HTML
+2025-05-14 19:50:44,656 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:44,657 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart 14-Cup Brew Central Programmable Coffee Maker (White) at 99.95 USD
+2025-05-14 19:50:46,873 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:46,873 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart Single Serve Coffee Brewer with K-Cup Compatible, Black at 99.95 USD
+2025-05-14 19:50:49,325 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:49,325 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Elite Single-Serve K-Cup Pod Coffee Maker, Brushed Slate at 164.0 USD
+2025-05-14 19:50:51,397 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:51,397 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart Coffee Makers Coffee Center 12 Cup Coffeemaker and Single-Serve Brewer at 0.0 USD
+2025-05-14 19:50:53,779 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:53,779 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Select Single-Serve K-Cup Pod Coffee Maker, Matte White at 143.0 USD
+2025-05-14 19:50:56,151 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:56,152 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Supreme Black Single-Serve K-Cup Pod Coffee Maker at 128.49 USD
+2025-05-14 19:50:58,388 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:50:58,389 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Slim Black Single-Serve K-Cup Pod Coffee Maker at 92.95 USD
+2025-05-14 19:51:00,801 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:51:00,801 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Classic Single Serve K-Cup Pod Coffee Maker, Black at 99.99 USD
+2025-05-14 19:51:04,473 - DealFinderAI.WalmartScraperAgent - INFO - Gemini used for product extraction
+2025-05-14 19:51:04,474 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart DGB-2 Single Serve Coffee Brewer, Black at 149.95 USD
+2025-05-14 19:51:04,474 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 9 products from HTML
+2025-05-14 19:51:04,474 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart 14-Cup Brew Central Programmable Coffee Maker (White) at 99.95 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart Single Serve Coffee Brewer with K-Cup Compatible, Black at 99.95 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Elite Single-Serve K-Cup Pod Coffee Maker, Brushed Slate at 164.0 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart Coffee Makers Coffee Center 12 Cup Coffeemaker and Single-Serve Brewer at 0.0 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Select Single-Serve K-Cup Pod Coffee Maker, Matte White at 143.0 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Supreme Black Single-Serve K-Cup Pod Coffee Maker at 128.49 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Slim Black Single-Serve K-Cup Pod Coffee Maker at 92.95 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Keurig K-Classic Single Serve K-Cup Pod Coffee Maker, Black at 99.99 USD
+2025-05-14 19:51:04,475 - DealFinderAI.WalmartScraperAgent - INFO - Extracted product: Cuisinart DGB-2 Single Serve Coffee Brewer, Black at 149.95 USD
+2025-05-14 19:51:05,182 - DealFinderAI.WalmartScraperAgent - INFO - Extracted 9 products from Walmart
+2025-05-14 19:51:05,185 - DealFinderAI.WalmartScraperAgent - INFO - Applying relevance filtering to 9 products
+2025-05-14 19:51:05,185 - DealFinderAI.WalmartScraperAgent - INFO - Filtered to 5 most relevant products
+2025-05-14 19:51:05,185 - DealFinderAI.Controller - INFO - Walmart returned 5 products
+2025-05-14 19:51:05,185 - DealFinderAI.EbayScraperAgent - INFO - Searching eBay for: {'product_type': 'coffee makers', 'keywords': ['top-rated', 'on sale'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True}
+2025-05-14 19:51:05,185 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            Optimize this search query for eBay's search engine:
+            
+            "coffee makers top-rated on sale"
+            
+            For eBay searches, please:
+            1. Focus on exact model numbers and specific part identifiers if present
+            2. Include key brand names
+            3. Remove generic words that may dilute results
+            4. Add eBay-specific terms that might improve results
+            5. Optimize for finding the most relevant listings
+            
+            Return a JSON object with:
+            - optimized_keywords: List of 3-5 optimized search terms (most important first)
+            - category_hints: Any eBay category suggestions
+            - must_include_terms: Terms that MUST be in results
+            - exclude_terms: Terms that should NOT be in results
+            
+            Format as JSON only with no explanation.
+            
+2025-05-14 19:51:06,337 - DealFinderAI.EbayScraperAgent - INFO - Optimized search parameters: {'product_type': 'coffee makers', 'keywords': ['Top Rated Coffee Maker Sale', 'Best Coffee Makers On Sale', 'Discount Coffee Makers', 'Sale Coffee Makers Top Rated', 'Brand Name Coffee Maker Sale'], 'price_range': None, 'brands': None, 'features': None, 'sorting_preference': 'rating', 'buy_it_now': True, 'category_hints': ['Home & Garden/Kitchen, Dining & Bar/Small Kitchen Appliances/Coffee, Tea & Espresso Makers'], 'must_include_terms': ['sale', 'Top Rated'], 'exclude_terms': ['broken', 'damaged', 'repair']}
+2025-05-14 19:51:06,337 - DealFinderAI.EbayScraperAgent - INFO - Built optimized eBay search query: coffee makers Top Rated Coffee Maker Sale Best Coffee Makers On Sale Discount Coffee Makers
+2025-05-14 19:51:06,337 - DealFinderAI.EbayScraperAgent - INFO - Built eBay query: coffee makers Top Rated Coffee Maker Sale Best Coffee Makers On Sale Discount Coffee Makers
+2025-05-14 19:51:06,338 - DealFinderAI.EbayScraperAgent - INFO - Making eBay search request with params: {'_nkw': 'coffee makers Top Rated Coffee Maker Sale Best Coffee Makers On Sale Discount Coffee Makers Home & Garden/Kitchen, Dining & Bar/Small Kitchen Appliances/Coffee, Tea & Espresso Makers', '_sacat': '0', '_ipg': '96', '_sop': '24', 'LH_BIN': '1'}
+2025-05-14 19:51:07,905 - DealFinderAI.EbayScraperAgent - INFO - Found 122 product listings
+2025-05-14 19:51:07,906 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Your Coffee Maker & Heavy Kitchen Appliances - Sturdy, Slides Easily from Under at 69.95 USD
+2025-05-14 19:51:07,906 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Your Coffee Maker & Heavy Kitchen Appliances - Sturdy, Slides Easily from Under at 69.95 USD
+2025-05-14 19:51:07,907 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Personal Single-Serve Coffee Maker & 14Oz Travel Mug, Drip Small Coffee Maker & at 44.99 USD
+2025-05-14 19:51:07,907 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Personal Single-Serve Coffee Maker & 14Oz Travel Mug, Drip Small Coffee Maker & at 44.99 USD
+2025-05-14 19:51:07,908 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Electric Coffee Maker for Home Office Use at 102.95 USD
+2025-05-14 19:51:07,908 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Electric Coffee Maker for Home Office Use at 102.95 USD
+2025-05-14 19:51:07,909 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Coffee Maker Stainless Steel Pot Household Coffeepot Office at 40.46 USD
+2025-05-14 19:51:07,909 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Coffee Maker Stainless Steel Pot Household Coffeepot Office at 40.46 USD
+2025-05-14 19:51:07,910 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Small Electric 4 Cup Coffee Maker Machine Coffee Pot Home Office RV College Dorm at 7.03 USD
+2025-05-14 19:51:07,910 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Small Electric 4 Cup Coffee Maker Machine Coffee Pot Home Office RV College Dorm at 7.03 USD
+2025-05-14 19:51:07,911 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Btwd 4 Cup 650 Watt Coffee Maker in Blue Small Home Kitchen Appliances Supplies at 125.0 USD
+2025-05-14 19:51:07,911 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Btwd 4 Cup 650 Watt Coffee Maker in Blue Small Home Kitchen Appliances Supplies at 125.0 USD
+2025-05-14 19:51:07,911 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Single Serving Coffee Maker, Small Affordable Coffee Brewer at 14.42 USD
+2025-05-14 19:51:07,911 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: Single Serving Coffee Maker, Small Affordable Coffee Brewer at 14.42 USD
+2025-05-14 19:51:07,913 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: 40oz Coffee Maker, Quick & Easy Brewing, Ideal for Home or Office Use at 350.53 USD
+2025-05-14 19:51:07,913 - DealFinderAI.EbayScraperAgent - INFO - Extracted product: 40oz Coffee Maker, Quick & Easy Brewing, Ideal for Home or Office Use at 350.53 USD
+2025-05-14 19:51:09,145 - DealFinderAI.EbayScraperAgent - INFO - Extracted 8 products from eBay
+2025-05-14 19:51:09,147 - DealFinderAI.EbayScraperAgent - INFO - Applying relevance filtering to 8 products
+2025-05-14 19:51:09,147 - DealFinderAI.EbayScraperAgent - INFO - Filtered to 5 most relevant products
+2025-05-14 19:51:09,148 - DealFinderAI.Controller - INFO - eBay returned 5 products
+2025-05-14 19:51:09,148 - DealFinderAI.Controller - INFO - Total products before aggregation: 15
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Aggregating results for query: What are the top-rated coffee makers on sale right now?
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Found 3 results from various sources
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Source Amazon: 5 products
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Source Walmart: 5 products
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Source eBay: 5 products
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Total products extracted: 15
+2025-05-14 19:51:09,148 - DealFinderAI.ResultsAggregatorAgent - INFO - Ranking 15 products
+2025-05-14 19:51:09,149 - DealFinderAI.ResultsAggregatorAgent - INFO - Sorted 15 products by score
+2025-05-14 19:51:09,149 - DealFinderAI.ResultsAggregatorAgent - INFO - Returning 10 diversified products
+2025-05-14 19:51:09,149 - DealFinderAI.ResultsAggregatorAgent - INFO - Products after ranking: 10
+2025-05-14 19:51:09,149 - DealFinderAI.ResultsAggregatorAgent - INFO - Final products: 10
+2025-05-14 19:51:09,149 - DealFinderAI.Controller - INFO - Products after aggregation: 10
+2025-05-14 19:51:09,149 - DealFinderAI.ProductComparisonAgent - INFO - Comparing products for query: What are the top-rated coffee makers on sale right now?
+2025-05-14 19:51:09,150 - DealFinderAI.ProductComparisonAgent - INFO - Found 10 products to compare
+2025-05-14 19:51:09,151 - DealFinderAI.ProductComparisonAgent - INFO - Grouping 10 products
+2025-05-14 19:51:09,151 - DealFinderAI.ProductComparisonAgent - INFO - Created 0 product groups
+2025-05-14 19:51:09,152 - DealFinderAI.ChatMemoryAgent - INFO - Storing context for conversation 20250514195017
+2025-05-14 19:51:09,152 - DealFinderAI.ChatMemoryAgent - INFO - Storing 10 products for conversation 20250514195017
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Preparing presentation for 10 products
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Formatting 10 products for display
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Product 1: Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker - Price: $39.99 - Source: Amazon
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Product 2: Single Serving Coffee Maker, Small Affordable Coffee Brewer - Price: $14.42 - Source: eBay
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Product 3: Cuisinart Coffee Makers Coffee Center 12 Cup Coffeemaker and Single-Serve Brewer - Price: $0.00 - Source: Walmart
+2025-05-14 19:51:09,153 - DealFinderAI.PresentationAgent - INFO - Product 4: Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R) - Price: $76.15 - Source: Amazon
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 5: Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel - Price: $79.99 - Source: Amazon
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 6: Ninja Specialty Coffee Maker, Hot & Iced Coffee, 6 Brew Styles, 8 Sizes, Small Cup to Travel Mug, 10-Cup Carafe, Fold-Away Frother, Permanent Filter, Removable Reservoir, Black, CM401 - Price: $129.99 - Source: Amazon
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 7: BUNN CSB2B Speed Brew Elite 10-Cup Coffee Maker, Black/SST - Price: $145.99 - Source: Amazon
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 8: Coffee Maker Stainless Steel Pot Household Coffeepot Office - Price: $40.46 - Source: eBay
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 9: Personal Single-Serve Coffee Maker & 14Oz Travel Mug, Drip Small Coffee Maker & - Price: $44.99 - Source: eBay
+2025-05-14 19:51:09,154 - DealFinderAI.PresentationAgent - INFO - Product 10: Your Coffee Maker & Heavy Kitchen Appliances - Sturdy, Slides Easily from Under - Price: $69.95 - Source: eBay
+2025-05-14 19:51:09,154 - DealFinderAI.ChatMemoryAgent - INFO - Storing context for conversation 20250514195017
+2025-05-14 19:51:09,154 - DealFinderAI.ChatMemoryAgent - INFO - Storing 10 products for conversation 20250514195017
+2025-05-14 19:51:09,155 - DealFinderAI.Controller - INFO - Successfully stored search results in memory
+2025-05-14 19:51:46,507 - DealFinderAI.Controller - INFO - Processing user query: What about the newer model?
+2025-05-14 19:51:46,508 - DealFinderAI.ChatMemoryAgent - INFO - Analyzing query: 'What about the newer model?' for conversation 20250514195017
+2025-05-14 19:51:46,508 - DealFinderAI.ChatMemoryAgent - INFO - Found 10 products in memory
+2025-05-14 19:51:46,509 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+        You are an AI helping to analyze if a user's query is a follow-up question about previously shown products, or if it's a completely new search.
+
+        Previous products shown to the user:
+        Product 1: Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker
+Product 2: Single Serving Coffee Maker, Small Affordable Coffee Brewer
+Product 3: Cuisinart Coffee Makers Coffee Center 12 Cup Coffeemaker and Single-Serve Brewer
+Product 4: Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R)
+Product 5: Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel
+
+        User's new query: "What about the newer model?"
+
+        Please analyze if this query is:
+        1. A follow-up question about the previously shown products (e.g., asking for more details, comparing them, etc.)
+        2. A completely new search (e.g., asking about different products, starting a new topic)
+
+        Return your analysis in JSON format:
+        {
+            "is_new_search": true/false,
+            "is_follow_up": true/false,
+            "reasoning": "brief explanation of your decision",
+            "referenced_product_indices": [list of 0-based indices of referenced products, if any]
+        }
+        
+        Only return the JSON, with no additional text.
+        
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Analyze response: {'is_follow_up': True, 'focused_product': 0, 'referenced_products': [{'title': 'Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker', 'price': 39.99, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Mr-Coffee-12-Cup-Manual-Maker/dp/B002YI49H6/ref=sr_1_10?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-10', 'image_url': 'https://m.media-amazon.com/images/I/31CSL6qZ-LL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 5707, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B002YI49H6', 'description': 'Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker 4.5 out of 5 stars 5,707 600+ bought in past monthPrice, product page$39.99$39.99 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$31.73(14+ used & new offers)', 'delivery_info': '600+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16, '_score': 94.001}, {'title': 'Single Serving Coffee Maker, Small Affordable Coffee Brewer', 'price': 14.42, 'shipping': 0.0, 'total_price': 14.42, 'is_free_shipping': True, 'currency': 'USD', 'url': 'https://www.ebay.com/itm/186330933128?_skw=coffee+makers+Top+Rated+Coffee+Maker+Sale+Best+Coffee+Makers+On+Sale+Discount+Coffee+Makers+Home+%26+Garden%2FKitchen%2C+Dining+%26+Bar%2FSmall+Kitchen+Appliances%2FCoffee%2C+Tea+%26+Espresso+Makers&itmmeta=01JV8KB0SAPVB9F0CHTNDJS62J&hash=item2b62306788%3Ag%3AfbMAAOSwcKlmT-DU&itmprp=enc%3AAQAKAAABkFkggFvd1GGDu0w3yXCmi1eyGXgV7JQIGxOlqMTL5cKcNgwSMo3cylzU0P1KTqsI9XtavzkT1rKyHg0BPyadpExjAmoGp%2FVE1Nw%2BsvDKJEf%2FpW%2FFA6XnYuoZJtEHQUpF5GtgpUy8D6cCeQKyAnkC3WFL40UleT1JNxy3WQmeajvyWhwt2YgSEM4OvOaTDvWm7GsdiN5roU4M7dhzeELlD3TSXBD0psYMP6Trto6GzydERErYXYhmdgMP%2BfT7HSa9A%2F503vUiYkbFYwXqB5FodPP1NlJ%2BWWuBywSJuq8aEN0cH07S3eXTSkxtQnRjy8Sqgo5wi6xmR7uP%2F0mw5GhC5xpOILWUI%2BoWsSey2ShJLJNPw2hIdi%2FohqZMsV2NdmGPd6W%2BqdH7sGa7xN%2Fwy3mgV%2BThv--Dst1WAYoo%2BUbJViMCla7WYq7Oms53xGh9fCVAEtkNadj5ytnIcnfxfMwDAzF2yCs5MA4883R2blr2Zxz%2Baahhj9RObsDAmpu7IDyEYq2KZnxDzSUMaMywG9L0dfM%3D%7Ctkp%3ABk9SR-qMrJPaZQ&LH_BIN=1', 'image_url': '', 'is_sponsored': False, 'condition': 'Brand New', 'listing_type': 'Buy It Now', 'seller_rating': 98.3, 'item_id': '186330933128', 'description': 'Brand New', 'quantity_sold': 0, 'watch_count': 2, 'source': 'eBay', 'relevance_score': 18, '_score': 58.558}, {'title': 'Cuisinart Coffee Makers Coffee Center 12 Cup Coffeemaker and Single-Serve Brewer', 'price': 0.0, 'was_price': None, 'currency': 'USD', 'url': '/ip/Cuisinart-Coffee-Center-12-Cup-Coffeemaker-and-Single-Serve-Brewer/458948574?classType=undefined&from=/search', 'image_url': 'https://i5.walmartimages.com/asr/259fb41b-358f-4148-a38b-004c3f589bfa.8675a97eda3f3c4d68ed44c5c3cf0351.jpeg?odnHeight=580&odnWidth=580&odnBg=FFFFFF', 'rating': 0.0, 'reviews': 0, 'is_sponsored': False, 'is_pickup_today': False, 'product_id': '3JEGUQL5KDCP', 'description': '', 'availability': 'In Stock', 'seller': 'Walmart', 'source': 'Walmart', 'relevance_score': 0, '_score': 30.0}, {'title': 'Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R)', 'price': 76.15, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Hamilton-Beach-49980A-Programmable-Stainless/dp/B00EI7DPPI/ref=sr_1_7?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-7', 'image_url': 'https://m.media-amazon.com/images/I/71N2-+T50pL._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 50934, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B00EI7DPPI', 'description': 'Hamilton Beach 2-Way 12 Cup Programmable Drip Coffee Maker & Single Serve Machine, Glass Carafe, Auto Pause and Pour, Black (49980R) 4.5 out of 5 stars 50,934 5K+ bought in past monthPrice, product page$76.15$76.15 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$35.61(2+ used & new offers)', 'delivery_info': '5K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16, '_score': 90.38499999999999}, {'title': 'Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel', 'price': 79.99, 'was_price': None, 'currency': 'USD', 'url': 'https://www.amazon.com/Ninja-12-Cup-Programmable-CE251-Stainless/dp/B07S98411N/ref=sr_1_6?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-6', 'image_url': 'https://m.media-amazon.com/images/I/81+HcYgDo1L._AC_UL320_.jpg', 'rating': 4.5, 'reviews': 25706, 'is_sponsored': False, 'is_prime': True, 'is_amazon_choice': False, 'is_best_seller': False, 'asin': 'B07S98411N', 'description': 'Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Warm Plate, 60oz Water Reservoir, Delay Brew - Black/Stainless Steel 4.5 out of 5 stars 25,706 8K+ bought in past monthPrice, product page$79.99$79.99 FREE delivery Mon, May 19 Add to cartMore Buying Choices$51.74(8+ used & new offers)', 'delivery_info': '8K+ bought in past month', 'out_of_stock': False, 'source': 'Amazon', 'relevance_score': 16, '_score': 90.001}], 'products': []}
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Is follow-up? True
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Referenced products: 5
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Handling as follow-up question about 5 products
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Handling follow-up question: What about the newer model?
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Referenced products: 5
+2025-05-14 19:51:47,733 - DealFinderAI.Controller - INFO - Follow-up for product: Mr. Coffee® Simple Brew 12-Cup Switch Coffee Maker
+2025-05-14 19:51:47,733 - DealFinderAI.GeminiAgent - INFO - Processing query with Gemini: 
+            I'm a shopping assistant helping a customer with product information.
+            
+            The customer previously searched for products and is now asking a follow-up question: "What about the newer model?"
+            
+            They're referring to this product:
+            {
+  "title": "Mr. Coffee\u00ae Simple Brew 12-Cup Switch Coffee Maker",
+  "price": 39.99,
+  "was_price": null,
+  "currency": "USD",
+  "url": "https://www.amazon.com/Mr-Coffee-12-Cup-Manual-Maker/dp/B002YI49H6/ref=sr_1_10?crid=1747266636&dib=eyJ2IjoiMSJ9.gyacgbwVACWsue2Rj_NQcQjRpAbx_d1PL917m7tFtKH224nIcvouYmgYRVhfO1eQL1BayR3vCxFzbHisg8zu12Yryz-djw6loACq-3GbXDRmFjZNb1FBBMlaO80zDJjY9i1HGF0_o6JuB39E1fLfrXt_YpqLgoXU03nzdc9R091SrizpIAWHieAiyklBATXQBLjsxVLdKRawPy4wdMWWEfiraLfzzC6AfFWnMpBVv-0BjPFMExrs4VQKFEQiiWUFUk8GBHReatvhBj2ncpMUoNH-8VjvbaGwF5MkDieJ5Gc.hbTXDd1UEJQ4pGPRE_fsHBYksnnIxlAb7Bzpfejf01M&dib_tag=se&keywords=coffee+makers+best-selling+coffee+makers+top+rated+coffee+makers+sale+Amazon%27s+Choice+coffee+maker+sale&qid=1747266636&s=kitchen&sr=1-10",
+  "image_url": "https://m.media-amazon.com/images/I/31CSL6qZ-LL._AC_UL320_.jpg",
+  "rating": 4.5,
+  "reviews": 5707,
+  "is_sponsored": false,
+  "is_prime": true,
+  "is_amazon_choice": false,
+  "is_best_seller": false,
+  "asin": "B002YI49H6",
+  "description": "Mr. Coffee\u00ae Simple Brew 12-Cup Switch Coffee Maker 4.5 out of 5 stars 5,707 600+ bought in past monthPrice, product page$39.99$39.99 FREE delivery Mon, May 19 Or fastest delivery Fri, May 16 Add to cartMore Buying Choices$31.73(14+ used & new offers)",
+  "delivery_info": "600+ bought in past month",
+  "out_of_stock": false,
+  "source": "Amazon",
+  "relevance_score": 16,
+  "_score": 94.001,
+  "formatted_price": "$39.99"
+}
+            
+            Please provide a helpful, conversational response addressing their question
+            about this specific product. Include relevant details from the product information.
+            
+            Important guidelines:
+            1. Always format prices as exact dollar amounts (e.g., "$39.99" not "$1")
+            2. Format URLs as clickable HTML links <a href="url">url</a>
+            3. If the product has a price field, be sure to mention the exact price as shown in the data
+            4. Be accurate about the product details - don't make up information not in the data
+            5. If the product is a "best deal", explain why it's a good value
+            
+            Your response should be conversational but accurate, highlighting the actual price 
+            and key product features. Don't create fake discounts or savings.
+            
