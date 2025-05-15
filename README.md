@@ -2,6 +2,80 @@
 
 An intelligent shopping assistant that uses AI to help users find the best deals across multiple e-commerce platforms.
 
+## Installation and Usage
+
+### Prerequisites
+- Python 3.8 or higher
+- Google Gemini API key (sign up at [Google AI Studio](https://ai.google.dev/))
+- Google Chrome browser (recommended for web interface)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shubhamsatbhaiya/BIA.git
+   cd BIA
+   ```
+
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Configure your environment:
+   - Set up your Google Gemini API key in the configuration
+   - Configure any platform-specific settings in the config files
+
+### Running the Application
+
+#### Terminal Mode
+To run in terminal mode:
+```bash
+python main.py
+```
+
+#### Web Interface Mode
+To run in web interface mode:
+```bash
+python main.py --web
+```
+
+Then open Google Chrome and go to http://localhost:5000
+
+### Types of Questions You Can Ask
+
+You can ask DealFinder AI natural language questions about products and deals. Here are some examples:
+
+#### Product Search
+- "Find me the best deals on wireless headphones"
+- "I need a budget laptop for college under $500"
+- "What are the top-rated coffee makers on sale right now?"
+- "Show me gaming monitors under $300"
+
+#### Price Comparison
+- "Compare prices of iPhone 14 Pro across Amazon and Walmart"
+- "Which store has the best deal on PlayStation 5?"
+- "Is this product cheaper on eBay or Amazon?"
+
+#### Product Information
+- "Tell me more about this product"
+- "What are the specifications of this laptop?"
+- "Show me customer reviews for this item"
+- "What's the return policy for this product?"
+
+#### Follow-up Questions
+You can ask follow-up questions about any product:
+- "What about the newer model?"
+- "Are there any accessories I should consider?"
+- "Can you show me similar products?"
+- "What's the warranty coverage?"
+
 ## Features
 
 - Real-time web scraping from major e-commerce platforms (Amazon, Walmart, eBay)
@@ -141,85 +215,6 @@ The system is built using a sophisticated Multi-Agent Communication Protocol (MC
    - Error rate monitoring
    - Cache hit ratio
    - Memory usage optimization
-
-## Requirements
-
-- Python 3.8 or higher
-- Google Gemini API key (sign up at [Google AI Studio](https://ai.google.dev/))
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/shubhamsatbhaiya/BIA.git
-   cd BIA
-   ```
-
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Configure your environment:
-   - Set up your Google Gemini API key in the configuration
-   - Configure any platform-specific settings in the config files
-
-## Usage
-
-The system can be used to:
-
-1. Search for products across multiple platforms simultaneously
-2. Get real-time price comparisons
-3. Find the best deals based on various criteria
-4. Get detailed product information including reviews and ratings
-
-### Types of Questions You Can Ask
-
-You can ask DealFinder AI natural language questions about products and deals. Here are some examples:
-
-#### Product Search
-- "Find me the best deals on wireless headphones"
-- "I need a budget laptop for college under $500"
-- "What are the top-rated coffee makers on sale right now?"
-- "Show me gaming monitors under $300"
-
-#### Price Comparison
-- "Compare prices of iPhone 14 Pro across Amazon and Walmart"
-- "Which store has the best deal on PlayStation 5?"
-- "Is this product cheaper on eBay or Amazon?"
-
-#### Product Information
-- "Tell me more about this product"
-- "What are the specifications of this laptop?"
-- "Show me customer reviews for this item"
-- "What's the return policy for this product?"
-
-#### Follow-up Questions
-You can ask follow-up questions about any product:
-- "What about the newer model?"
-- "Are there any accessories I should consider?"
-- "Can you show me similar products?"
-- "What's the warranty coverage?"
-
-### Running the Application
-
-#### Terminal Mode
-To run in terminal mode:
-```bash
-python main.py
-```
-
-#### Web Interface Mode
-To run in web interface mode:
-```bash
-python main.py --web
-```
 
 ## Project Structure
 

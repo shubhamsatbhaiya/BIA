@@ -16512,3 +16512,27 @@ Product 5: Ninja 12-Cup Programmable Coffee Brewer, 2 Brew Styles, Adjustable Wa
             Your response should be conversational but accurate, highlighting the actual price 
             and key product features. Don't create fake discounts or savings.
             
+2025-05-14 21:17:59,828 - DealFinderAI - INFO - Logging initialized
+2025-05-14 21:17:59,829 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 21:17:59,829 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 21:17:59,872 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:17:59,872 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:17:59,872 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:17:59,872 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:17:59,872 - DealFinderAI.Main - INFO - Web app using LangChain implementation with Gemini model
+2025-05-14 21:18:12,920 - DealFinderAI - INFO - Logging initialized
+2025-05-14 21:18:12,921 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 21:18:12,921 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 21:18:12,960 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:18:12,960 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:18:12,960 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:18:12,960 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:18:12,960 - DealFinderAI.Main - INFO - Web app using LangChain implementation with Gemini model
+2025-05-14 21:18:13,236 - DealFinderAI - INFO - Logging initialized
+2025-05-14 21:18:13,237 - DealFinderAI.Main - INFO - Starting DealFinder AI
+2025-05-14 21:18:13,237 - DealFinderAI.Main - INFO - Using LangChain implementation
+2025-05-14 21:18:13,263 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:18:13,263 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:18:13,263 - DealFinderAI.Scrapers - INFO - Initializing real web scraper agents
+2025-05-14 21:18:13,263 - DealFinderAI.Controller - INFO - Initialized scraper agents: ['amazon', 'walmart', 'ebay']
+2025-05-14 21:18:13,263 - DealFinderAI.Main - INFO - Web app using LangChain implementation with Gemini model
